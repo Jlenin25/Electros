@@ -19,7 +19,70 @@
               @include('admin.purchase.form')
               <button type="submit" class="btn btn-primary mr-2">Agregar</button>
               <a href="{{ route('purchases.index') }}"class="btn btn-light">Cancelar</a>
+              <div>
+                <form class="forms-sample" method="POST" action="{{ route('purchases.store') }}">
+                  @csrf
+                  @include('admin.purchase._form')
+                </form>
+                <div class="form-group">
+                  <h4 class="card-title">Detalles de venta</h4>
+                  <div class="table-responsive col-md-12">
+                    <table id="detalles" class="table table-striped">
+                      <thead>
+                        <tr>
+                          <th>Eliminar</th>
+                          <th>Producto</th>
+                          <th>Precio</th>
+                          <th>Cantidad</th>
+                          <th>Sub Total</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        @foreach($product as $producto)
+                        <tr>
+                          <th>{{$producto->nombre }}</th>
+                          <th>{{$producto->precioventa }}</th>
+                        </tr>
+                        @endforeach
+                      </tbody>
+                      <tfoot>
+                        <tr>
+                          <th colspan="4">
+                            <p align="right">Subtotal: </p>
+                          </th>
+                          <th colspan="4">
+                            <p align="right"><span id="subtotal">0.00</span></p>
+                          </th>
+                        </tr>
+                        <tr>
+                          <th colspan="4">
+                            <p align="right">IGV: </p>
+                          </th>
+                          <th colspan="4">
+                            <p align="right"><span id="igv">0.00</span></p>
+                          </th>
+                        </tr>
+                        <tr>
+                          <th colspan="4">
+                            <p align="right">Total: </p>
+                          </th>
+                          <th colspan="4">
+                            <p align="right">
+                              <span id="total">0.00</span>
+                              {{-- <input type="hidden" name="total" id="total_pagar"> --}}
+                            </p>
+                          </th>
+                        </tr>
+                      </tfoot>
+                    </table>
+                  </div>
+                </div>
+              </div>
             </form>
+
+
+
+
           </div>
         </div>
       </div>
@@ -38,16 +101,16 @@
   $("#guardar").hide();
 
   function agregar() {
-      product_id = $("#product_id").val();
-      producto = $("#product_id option:selected").text();
+      id_product = $("#id_product").val();
+      producto = $("#id_product option:selected").text();
       quantity = $("#quantity").val();
       price = $("price").val();
       impuesto = $("#tax").val();
 
-      if(product_id!="" && quantity!="" && quantity>0 && price!="") {
+      if(id_product!="" && quantity!="" && quantity>0 && price!="") {
           subtotal[cont] = quantity * price;
           total = total + subtotal[cont];
-          var fila = '<tr class="select" id="fila'+cont+'"><td><button type="button" class="btn btn-danger btn-sm" onclick="eliminar('+cont+');"><i class="fa fa-times"></i></button></td>  <td><input type="hidden" name="product_id[] value="'+product_id+'">'+producto+'</td><td><input type="hidden" id="price[]" name="price[]" value="'+price+'"><input class="form-control" type="number" id="price[]" value="'+price+'" disable></td><td><input type="hidden" name="quantity[]" value="'+quantity+'"><input class="form-control" type="number" value="'+quantity+'" disable></td><td align="right">S/.'+subtotal[cont]+'</td></tr>';
+          var fila = '<tr class="select" id="fila'+cont+'"><td><button type="button" class="btn btn-danger btn-sm" onclick="eliminar('+cont+');"><i class="fa fa-times"></i></button></td>  <td><input type="hidden" name="id_product[] value="'+id_product+'">'+producto+'</td><td><input type="hidden" id="price[]" name="price[]" value="'+price+'"><input class="form-control" type="number" id="price[]" value="'+price+'" disable></td><td><input type="hidden" name="quantity[]" value="'+quantity+'"><input class="form-control" type="number" value="'+quantity+'" disable></td><td align="right">S/.'+subtotal[cont]+'</td></tr>';
           cont++;
           limpiar();
           totales();
