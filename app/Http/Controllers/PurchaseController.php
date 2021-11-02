@@ -47,8 +47,9 @@ class PurchaseController extends Controller
         return redirect()->route('purchases.index');
     }
 
-    public function destroy(Purchase $purchase) {
-        // $purchase->delete();
-        // return redirect()->route('purchases.index');
+    public function destroy(Purchase $purchase, Product $product) {
+        $purchase->delete();
+        $product->delete();
+        return redirect()->route('purchases.index');
     }
 }

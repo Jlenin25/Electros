@@ -40,6 +40,13 @@
                       <tbody>
                         @foreach($product as $producto)
                         <tr>
+                          <th>
+                            <form action="{{ route('purchases.destroy',$producto->id) }}" method="POST">
+                              @csrf
+                              @method('DELETE')
+                              <button style="background:transparent; color:red; border:none" type="submit" href="{{ route('purchases.destroy',$producto->id) }}"><i class="fas fa-trash"></i></button>
+                            </form>
+                          </th>
                           <th>{{$producto->nombre }}</th>
                           <th>{{$producto->precioventa }}</th>
                         </tr>
