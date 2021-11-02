@@ -6,14 +6,22 @@
 		</div>
 		<div class="col">
 			<label for="exampleInputName1">Cliente</label>
-			<input type="text" value="{{ $purchase->id_client }}" class="form-control" name="id_client">
+			<select class="form-control" name="id_client" id="id_client">
+				@foreach($cliente as $cliente)
+				<option value="{{ $cliente->id }}">{{ $cliente->contacto }}</option>
+				@endforeach
+			</select>
 		</div>
 	</div>
 	<br>
 	<div class="row">
 		<div class="col">
 			<label for="exampleInputName1">Asignado</label>
-			<input type="text" value="{{ $purchase->id_user }}" class="form-control" name="id_user">
+			<select class="form-control" name="id_user" id="id_user">
+				@foreach($user as $usuario)
+				<option value="{{ $usuario->id }}">{{ $usuario->name }}</option>
+				@endforeach
+			</select>
 		</div>
 		<div class="col">
 			<label for="exampleInputName1">Expira</label>

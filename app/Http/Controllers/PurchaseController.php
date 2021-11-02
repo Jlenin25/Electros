@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\Purchase;
 use App\Models\Provider;
 use App\Models\Product;
+use App\Models\Client;
+use App\Models\User;
 use Illuminate\Http\Request;
 use App\Http\Requests\Purchase\StoreRequest;
 use App\Http\Requests\Purchase\UpdateRequest;
@@ -20,7 +22,12 @@ class PurchaseController extends Controller
         $purchase = new Purchase();
         $providers = Provider::get();
         $product = Product::get();
-        return view('admin.purchase.create', compact('purchase','providers','product'));
+        $cliente = Client::get();
+        $user = User::get();
+        return view('admin.purchase.create', compact(
+            'purchase','providers',
+            'product', 'cliente', 'user'
+        ));
     }
     
     public function store(StoreRequest $request) {
