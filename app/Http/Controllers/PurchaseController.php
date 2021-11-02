@@ -25,10 +25,10 @@ class PurchaseController extends Controller
     
     public function store(StoreRequest $request) {
         $purchase = Purchase::create($request->all());
-        // foreach($request->id_product as $key=>$product) {
-        //     $results[] = array('id_product'=>$request->id_product[$key], 'cantidad'=>$request->cantidad[$key], 'precio'=>$request->precio[$key]);
-        // }
-        // $purchase->purchaseDetails()->createMany($results);
+        foreach($request->id_product as $key=>$product) {
+            $results[] = array('id_product'=>$request->id_product[$key], 'cantidad'=>$request->cantidad[$key], 'precioventa'=>$request->precioventa[$key]);
+        }
+        $purchase->purchaseDetails()->createMany($results);
         return redirect()->route('purchases.index');
     }
 
@@ -47,9 +47,8 @@ class PurchaseController extends Controller
         return redirect()->route('purchases.index');
     }
 
-    public function destroy(Purchase $purchase, Product $product) {
-        $purchase->delete();
-        $product->delete();
-        return redirect()->route('purchases.index');
+    public function destroy(Purchase $purchase) {
+        // $purchase->delete();
+        // return redirect()->route('purchases.index');
     }
 }
