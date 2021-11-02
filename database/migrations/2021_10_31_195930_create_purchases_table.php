@@ -15,6 +15,7 @@ class CreatePurchasesTable extends Migration
     {
         Schema::create('purchases', function (Blueprint $table) {
             $table->id();
+            $table->string('codigo')->unique();
             $table->foreignId('id_client')
                   ->nullable()
                   ->constrained('clients')
@@ -61,8 +62,6 @@ class CreatePurchasesTable extends Migration
                   ->cascadeOnUpdate()
                   ->nullOnDelete();
             $table->timestamps();
-            $table->dateTime('venta_fecha');
-            $table->enum('estado',['valido','cancelado'])->default('valido');
         });
     }
 

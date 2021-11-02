@@ -15,6 +15,7 @@ class CreateExpiresTable extends Migration
     {
         Schema::create('expires', function (Blueprint $table) {
             $table->id();
+            $table->string('expira');
             $table->timestamps();
         });
     }

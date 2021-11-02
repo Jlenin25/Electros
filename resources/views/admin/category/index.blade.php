@@ -6,18 +6,17 @@
 			<h3 class="page-title">
 				Categorías
 			</h3>
-			<nav aria-label="breadcrumb">
-				<ol class="breadcrumb">
-					<li class="breadcrumb-item"><a href="#">Tables</a></li>
-					<li class="breadcrumb-item active" aria-current="page">Data table</li>
-				</ol>
-			</nav>
 		</div>
 		<div class="card">
 			<div class="card-body">
-				<div class="d-fex justify-content-between">
-					<h4 class="card-title">Categorías</h4>
-					<i class="fas fa-ellipsis-v"></i>
+				<div class="d-flex justify-content-between">
+					<h4 class="card-title"></h4>
+					<button type="button" style="background:transparent; border:none" data-bs-toggle="dropdown" aria-expanded="false">
+						<i class="fas fa-ellipsis-v"></i>
+					</button>
+					<ul class="dropdown-menu dropdown-menu-end">
+						<li><a class="dropdown-item" href="{{ route('categories.create') }}">Agregar</a></li>
+					</ul>
 				</div>
 				<div class="row">
 					<div class="col-12">
@@ -25,157 +24,27 @@
 							<table id="order-listing" class="table">
 								<thead>
 									<tr>
-											<th>Order #</th>
-											<th>Purchased On</th>
-											<th>Customer</th>
-											<th>Ship to</th>
-											<th>Base Price</th>
-											<th>Purchased Price</th>
-											<th>Status</th>
-											<th>Actions</th>
+											<th>Nombre</th>
+											<th>Descipción</th>
+											<th>Acciones</th>
 									</tr>
 								</thead>
 								<tbody>
+									@foreach($categories as $categoria)
 									<tr>
-											<td>1</td>
-											<td>2012/08/03</td>
-											<td>Edinburgh</td>
-											<td>New York</td>
-											<td>$1500</td>
-											<td>$3200</td>
+											<td>{{ $categoria->name }}</td>
+											<td>{{ $categoria->description }}</td>
 											<td>
-												<label class="badge badge-info">On hold</label>
-											</td>
-											<td>
-												<button class="btn btn-outline-primary">View</button>
+												<form action="{{ route('categories.destroy',$categoria->id) }}" method="POST">
+													<a style="color:black" href="{{ route('categories.show',$categoria->id) }}"><i class="far fa-eye"></i></a>
+													<a style="color:blue" href="{{ route('categories.edit',$categoria->id) }}"><i class="fas fa-pen"></i></a>
+													@csrf
+													@method('DELETE')
+													<button style="background:transparent; color:red; border:none" type="submit" href="{{ route('categories.destroy',$categoria->id) }}"><i class="fas fa-trash"></i></button>
+											</form>
 											</td>
 									</tr>
-									<tr>
-											<td>2</td>
-											<td>2015/04/01</td>
-											<td>Doe</td>
-											<td>Brazil</td>
-											<td>$4500</td>
-											<td>$7500</td>
-											<td>
-												<label class="badge badge-danger">Pending</label>
-											</td>
-											<td>
-												<button class="btn btn-outline-primary">View</button>
-											</td>
-									</tr>
-									<tr>
-											<td>3</td>
-											<td>2010/11/21</td>
-											<td>Sam</td>
-											<td>Tokyo</td>
-											<td>$2100</td>
-											<td>$6300</td>
-											<td>
-												<label class="badge badge-success">Closed</label>
-											</td>
-											<td>
-												<button class="btn btn-outline-primary">View</button>
-											</td>
-									</tr>
-									<tr>
-											<td>4</td>
-											<td>2016/01/12</td>
-											<td>Sam</td>
-											<td>Tokyo</td>
-											<td>$2100</td>
-											<td>$6300</td>
-											<td>
-												<label class="badge badge-success">Closed</label>
-											</td>
-											<td>
-												<button class="btn btn-outline-primary">View</button>
-											</td>
-									</tr>
-									<tr>
-											<td>5</td>
-											<td>2017/12/28</td>
-											<td>Sam</td>
-											<td>Tokyo</td>
-											<td>$2100</td>
-											<td>$6300</td>
-											<td>
-												<label class="badge badge-success">Closed</label>
-											</td>
-											<td>
-												<button class="btn btn-outline-primary">View</button>
-											</td>
-									</tr>
-									<tr>
-											<td>6</td>
-											<td>2000/10/30</td>
-											<td>Sam</td>
-											<td>Tokyo</td>
-											<td>$2100</td>
-											<td>$6300</td>
-											<td>
-												<label class="badge badge-info">On-hold</label>
-											</td>
-											<td>
-												<button class="btn btn-outline-primary">View</button>
-											</td>
-									</tr>
-									<tr>
-											<td>7</td>
-											<td>2011/03/11</td>
-											<td>Cris</td>
-											<td>Tokyo</td>
-											<td>$2100</td>
-											<td>$6300</td>
-											<td>
-												<label class="badge badge-success">Closed</label>
-											</td>
-											<td>
-												<button class="btn btn-outline-primary">View</button>
-											</td>
-									</tr>
-									<tr>
-											<td>8</td>
-											<td>2015/06/25</td>
-											<td>Tim</td>
-											<td>Italy</td>
-											<td>$6300</td>
-											<td>$2100</td>
-											<td>
-												<label class="badge badge-info">On-hold</label>
-											</td>
-											<td>
-												<button class="btn btn-outline-primary">View</button>
-											</td>
-									</tr>
-									<tr>
-											<td>9</td>
-											<td>2016/11/12</td>
-											<td>John</td>
-											<td>Tokyo</td>
-											<td>$2100</td>
-											<td>$6300</td>
-											<td>
-												<label class="badge badge-success">Closed</label>
-											</td>
-											<td>
-												<button class="btn btn-outline-primary">View</button>
-											</td>
-									</tr>
-									<tr>
-											<td>10</td>
-											<td>2003/12/26</td>
-											<td>Tom</td>
-											<td>Germany</td>
-											<td>$1100</td>
-											<td>$2300</td>
-											<td>
-												<label class="badge badge-danger">Pending</label>
-											</td>
-											<td>
-												<button class="btn btn-outline-primary">View</button>
-											</td>
-									</tr>
+									@endforeach
 								</tbody>
 							</table>
 						</div>
@@ -186,7 +55,7 @@
 	</div>
 </div>
 @endsection
-<script src="../../vendors/js/vendor.bundle.base.js"></script>
+{{-- <script src="../../vendors/js/vendor.bundle.base.js"></script> --}}
 <script src="../../vendors/js/vendor.bundle.addons.js"></script>
 <script src="../../js/off-canvas.js"></script>
 <script src="../../js/hoverable-collapse.js"></script>

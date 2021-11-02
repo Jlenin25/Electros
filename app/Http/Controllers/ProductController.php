@@ -17,16 +17,26 @@ class ProductController extends Controller
     }
 
     public function create() {
+        $product = new Product();
         $categories = Category::get();
         $providers = Provider::get();
         return view('admin.product.create', compact(
+            'product',
             'categories',
             'providers'
         ));
     }
-    
+
     public function store(StoreRequest $request) {
-        Product::create($request->all());
+        if($request->hasFile('image')) {
+            $file = $request->file('image');
+            $image_name = time().'_'.$file->getClientOriginalName();
+            $file->move(public_path('/image'),$image_name);
+        };
+        $product = Product::create($request->all()+[
+            'imagen'=>$image_name,
+        ]);
+        $product->update(['code'=>$product->id]);
         return redirect()->route('products.index');
     }
 

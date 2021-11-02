@@ -15,6 +15,7 @@ class CreateWaytopaysTable extends Migration
     {
         Schema::create('waytopays', function (Blueprint $table) {
             $table->id();
+            $table->string('pago');
             $table->timestamps();
         });
     }

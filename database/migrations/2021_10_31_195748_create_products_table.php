@@ -19,7 +19,7 @@ class CreateProductsTable extends Migration
             $table->string('nombre')->unique();
             $table->string('imagen')->nullable();
             $table->decimal('preciocosto',12,2);
-            $table->integer('stock')->nullable();
+            $table->integer('stock')->default(0);
             $table->text('descripcion');
             $table->foreignId('id_provider')
                   ->nullable()

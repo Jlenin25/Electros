@@ -15,7 +15,8 @@ class ProviderController extends Controller
     }
 
     public function create() {
-        return view('admin.provider.create');
+        $provider = new Provider();
+        return view('admin.provider.create', compact('provider'));
     }
     
     public function store(StoreRequest $request) {

@@ -16,8 +16,9 @@ class PurchaseController extends Controller
     }
 
     public function create() {
+        $purchase = new Purchase();
         $providers = Provider::get();
-        return view('admin.purchase.create', compact('providers'));
+        return view('admin.purchase.create', compact('purchase','providers'));
     }
     
     public function store(StoreRequest $request) {
@@ -39,8 +40,8 @@ class PurchaseController extends Controller
     }
 
     public function update(UpdateRequest $request, Purchase $purchase) {
-        // $purchase->update($request->all());
-        // return redirect()->route('purchases.index');
+        $purchase->update($request->all());
+        return redirect()->route('purchases.index');
     }
 
     public function destroy(Purchase $purchase) {
