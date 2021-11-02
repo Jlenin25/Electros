@@ -24,3 +24,6 @@ Route::resource('waytopays', App\Http\Controllers\WaytopayController::class)->na
 Route::get('dashboard', function () {
     return view('prueba');
 });
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
