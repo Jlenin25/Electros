@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Model;
  * Class Waytopay
  *
  * @property $id
+ * @property $pago
  * @property $created_at
  * @property $updated_at
  *
@@ -19,6 +20,7 @@ class Waytopay extends Model
 {
     
     static $rules = [
+		'pago' => 'required',
     ];
 
     protected $perPage = 20;
@@ -28,7 +30,7 @@ class Waytopay extends Model
      *
      * @var array
      */
-    protected $fillable = [];
+    protected $fillable = ['pago'];
 
 
     /**

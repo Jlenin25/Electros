@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Model;
  * Class Condition
  *
  * @property $id
+ * @property $condiciones
  * @property $created_at
  * @property $updated_at
  *
@@ -19,6 +20,7 @@ class Condition extends Model
 {
     
     static $rules = [
+		'condiciones' => 'required',
     ];
 
     protected $perPage = 20;
@@ -28,7 +30,7 @@ class Condition extends Model
      *
      * @var array
      */
-    protected $fillable = [];
+    protected $fillable = ['condiciones'];
 
 
     /**

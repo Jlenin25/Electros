@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Model;
  * Class Delivery
  *
  * @property $id
+ * @property $entrega
  * @property $created_at
  * @property $updated_at
  *
@@ -19,6 +20,7 @@ class Delivery extends Model
 {
     
     static $rules = [
+		'entrega' => 'required',
     ];
 
     protected $perPage = 20;
@@ -28,7 +30,7 @@ class Delivery extends Model
      *
      * @var array
      */
-    protected $fillable = [];
+    protected $fillable = ['entrega'];
 
 
     /**

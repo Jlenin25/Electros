@@ -36,6 +36,7 @@
                                     <tr>
                                         <th>No</th>
                                         
+										<th>Pago</th>
 
                                         <th></th>
                                     </tr>
@@ -45,6 +46,7 @@
                                         <tr>
                                             <td>{{ ++$i }}</td>
                                             
+											<td>{{ $waytopay->pago }}</td>
 
                                             <td>
                                                 <form action="{{ route('waytopays.destroy',$waytopay->id) }}" method="POST">

@@ -20,6 +20,10 @@
 
                     <div class="card-body">
                         
+                        <div class="form-group">
+                            <strong>Piepagina:</strong>
+                            {{ $footer->piepagina }}
+                        </div>
 
                     </div>
                 </div>

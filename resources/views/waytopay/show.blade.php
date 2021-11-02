@@ -20,6 +20,10 @@
 
                     <div class="card-body">
                         
+                        <div class="form-group">
+                            <strong>Pago:</strong>
+                            {{ $waytopay->pago }}
+                        </div>
 
                     </div>
                 </div>

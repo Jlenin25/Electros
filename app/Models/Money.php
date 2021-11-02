@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Model;
  * Class Money
  *
  * @property $id
+ * @property $moneda
  * @property $created_at
  * @property $updated_at
  *
@@ -19,6 +20,7 @@ class Money extends Model
 {
     
     static $rules = [
+		'moneda' => 'required',
     ];
 
     protected $perPage = 20;
@@ -28,7 +30,7 @@ class Money extends Model
      *
      * @var array
      */
-    protected $fillable = [];
+    protected $fillable = ['moneda'];
 
 
     /**

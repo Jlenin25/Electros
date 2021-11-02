@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Model;
  * Class Footer
  *
  * @property $id
+ * @property $piepagina
  * @property $created_at
  * @property $updated_at
  *
@@ -19,6 +20,7 @@ class Footer extends Model
 {
     
     static $rules = [
+		'piepagina' => 'required',
     ];
 
     protected $perPage = 20;
@@ -28,7 +30,7 @@ class Footer extends Model
      *
      * @var array
      */
-    protected $fillable = [];
+    protected $fillable = ['piepagina'];
 
 
     /**

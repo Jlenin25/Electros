@@ -20,6 +20,10 @@
 
                     <div class="card-body">
                         
+                        <div class="form-group">
+                            <strong>Condiciones:</strong>
+                            {{ $condition->condiciones }}
+                        </div>
 
                     </div>
                 </div>

@@ -36,6 +36,7 @@
                                     <tr>
                                         <th>No</th>
                                         
+										<th>Piepagina</th>
 
                                         <th></th>
                                     </tr>
@@ -45,6 +46,7 @@
                                         <tr>
                                             <td>{{ ++$i }}</td>
                                             
+											<td>{{ $footer->piepagina }}</td>
 
                                             <td>
                                                 <form action="{{ route('footers.destroy',$footer->id) }}" method="POST">

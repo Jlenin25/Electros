@@ -36,6 +36,7 @@
                                     <tr>
                                         <th>No</th>
                                         
+										<th>Expira</th>
 
                                         <th></th>
                                     </tr>
@@ -45,6 +46,7 @@
                                         <tr>
                                             <td>{{ ++$i }}</td>
                                             
+											<td>{{ $expire->expira }}</td>
 
                                             <td>
                                                 <form action="{{ route('expires.destroy',$expire->id) }}" method="POST">

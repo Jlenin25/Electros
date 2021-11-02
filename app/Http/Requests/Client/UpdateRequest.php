@@ -29,13 +29,13 @@ class UpdateRequest extends FormRequest
             'celular1' => 'required|string|min:9|unique:providers,celular1,'.$this->route('provider')->id.'|max:9',
             'email1' => 'nullable|string|unique:providers,email1'.$this->route('provider')->id.'|max:50',
             'paginaweb' => 'required|string|max:30',
-            // 'id_estadocliente' => 'nullable|string|max:15',
+            'id_estadocliente' => 'nullable|string|max:15',
             'razonsocial' => 'nullable|string|max:15',
             'contacto' => 'required|string|max:50',
             'celular2' => 'nullable|string|min:9|unique:providers,celular2'.$this->route('provider')->id.'|max:9',
             'email2' => 'nullable|string|unique:providers,email2'.$this->route('provider')->id.'|max:50',
-            // 'id_area' => 'nullable|string|max:15',
-            // 'id_user' => 'nullable|string|max:15'
+            'id_area' => 'nullable|string|max:15',
+            'id_user' => 'nullable|string|max:15'
         ];
     }
     public function messages() {
@@ -65,8 +65,8 @@ class UpdateRequest extends FormRequest
             'paginaweb.string' => 'El valor no es correcto.',
             'paginaweb.max' => 'Solo se permite 50 caracteres.',
             /* ID - ESTADO DEL CLIENTE */
-            // 'id_estadocliente.string' => 'El valor no es correcto.',
-            // 'id_estadocliente.max' => 'Solo se permite 15 caracteres.',
+            'id_estadocliente.string' => 'El valor no es correcto.',
+            'id_estadocliente.max' => 'Solo se permite 15 caracteres.',
             /* RAZON SOCIAL */
             'razonsocial.string' => 'El valor no es correcto.',
             'razonsocial.max' => 'Solo se permite 15 caracteres.',
@@ -84,11 +84,11 @@ class UpdateRequest extends FormRequest
             'email2.max' => 'Solo se permite 50 caracteres.',
             'email2.unique' => 'Ya se encuentra registrado.',
             /* ID - AREA */
-            // 'id_area.string' => 'El valor no es correcto.',
-            // 'id_area.max' => 'Solo se permite 15 caracteres.',
+             'id_area.string' => 'El valor no es correcto.',
+            'id_area.max' => 'Solo se permite 15 caracteres.',
             /* ID - USUARIO */
-            // 'id_user.string' => 'El valor no es correcto.',
-            // 'id_user.max' => 'Solo se permite 15 caracteres.'
+            'id_user.string' => 'El valor no es correcto.',
+            'id_user.max' => 'Solo se permite 15 caracteres.'
         ];
     }
 }

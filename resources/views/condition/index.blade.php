@@ -36,6 +36,7 @@
                                     <tr>
                                         <th>No</th>
                                         
+										<th>Condiciones</th>
 
                                         <th></th>
                                     </tr>
@@ -45,6 +46,7 @@
                                         <tr>
                                             <td>{{ ++$i }}</td>
                                             
+											<td>{{ $condition->condiciones }}</td>
 
                                             <td>
                                                 <form action="{{ route('conditions.destroy',$condition->id) }}" method="POST">

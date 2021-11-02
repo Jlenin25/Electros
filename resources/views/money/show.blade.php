@@ -20,6 +20,10 @@
 
                     <div class="card-body">
                         
+                        <div class="form-group">
+                            <strong>Moneda:</strong>
+                            {{ $money->moneda }}
+                        </div>
 
                     </div>
                 </div>

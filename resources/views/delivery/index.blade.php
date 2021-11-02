@@ -36,6 +36,7 @@
                                     <tr>
                                         <th>No</th>
                                         
+										<th>Entrega</th>
 
                                         <th></th>
                                     </tr>
@@ -45,6 +46,7 @@
                                         <tr>
                                             <td>{{ ++$i }}</td>
                                             
+											<td>{{ $delivery->entrega }}</td>
 
                                             <td>
                                                 <form action="{{ route('deliveries.destroy',$delivery->id) }}" method="POST">

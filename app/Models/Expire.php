@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Model;
  * Class Expire
  *
  * @property $id
+ * @property $expira
  * @property $created_at
  * @property $updated_at
  *
@@ -19,6 +20,7 @@ class Expire extends Model
 {
     
     static $rules = [
+		'expira' => 'required',
     ];
 
     protected $perPage = 20;
@@ -28,7 +30,7 @@ class Expire extends Model
      *
      * @var array
      */
-    protected $fillable = [];
+    protected $fillable = ['expira'];
 
 
     /**
