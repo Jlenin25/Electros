@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 
 /**
- * Class Money
+ * Class Coin
  *
  * @property $id
  * @property $moneda
@@ -16,7 +16,7 @@ use Illuminate\Database\Eloquent\Model;
  * @package App
  * @mixin \Illuminate\Database\Eloquent\Builder
  */
-class Money extends Model
+class Coin extends Model
 {
     
     static $rules = [
@@ -38,7 +38,7 @@ class Money extends Model
      */
     public function purchases()
     {
-        return $this->hasMany('App\Models\Purchase', 'id_money', 'id');
+        return $this->hasMany('App\Models\Purchase', 'id_coin', 'id');
     }
     
 

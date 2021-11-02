@@ -31,14 +31,14 @@ class CreatePurchasesTable extends Migration
                   ->constrained('expires')
                   ->cascadeOnUpdate()
                   ->nullOnDelete();
-            $table->foreignId('id_money')
+            $table->foreignId('id_coin')
                   ->nullable()
-                  ->constrained('moneys')
+                  ->constrained('coins')
                   ->cascadeOnUpdate()
                   ->nullOnDelete();
-            $table->foreignId('id_delivery')
+            $table->foreignId('id_deliverie')
                   ->nullable()
-                  ->constrained('deliverys')
+                  ->constrained('deliveries')
                   ->cascadeOnUpdate()
                   ->nullOnDelete();
             $table->foreignId('id_waytopay')

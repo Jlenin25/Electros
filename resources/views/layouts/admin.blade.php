@@ -154,6 +154,68 @@
               <span class="menu-title">Cotización</span>
             </a>
           </li>
+          
+
+
+
+          <li class="nav-item">
+            <a class="nav-link" href="{{ route('areas.index') }}">
+              <i class="fa fa-puzzle-piece menu-icon"></i>
+              <span class="menu-title">Áreas</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{{ route('conditions.index') }}">
+              <i class="fa fa-puzzle-piece menu-icon"></i>
+              <span class="menu-title">Condiciones Generales</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{{ route('deliveries.index') }}">
+              <i class="fa fa-puzzle-piece menu-icon"></i>
+              <span class="menu-title">Tiempo de Entrega</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{{ route('expires.index') }}">
+              <i class="fa fa-puzzle-piece menu-icon"></i>
+              <span class="menu-title">Expira</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{{ route('footers.index') }}">
+              <i class="fa fa-puzzle-piece menu-icon"></i>
+              <span class="menu-title">Pie de Pagina</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{{ route('coins.index') }}">
+              <i class="fa fa-puzzle-piece menu-icon"></i>
+              <span class="menu-title">Moneda</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{{ route('stateclients.index') }}">
+              <i class="fa fa-puzzle-piece menu-icon"></i>
+              <span class="menu-title">Estado - Cliente</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{{ route('statepurchases.index') }}">
+              <i class="fa fa-puzzle-piece menu-icon"></i>
+              <span class="menu-title">Estado - Cotización</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{{ route('waytopays.index') }}">
+              <i class="fa fa-puzzle-piece menu-icon"></i>
+              <span class="menu-title">Forma de Pago</span>
+            </a>
+          </li>
+
+
+
+
           <hr style="margin:5px 80px 20px 10px">
           <li class="nav-item">
             <a class="nav-link" href="pages/widgets.html">

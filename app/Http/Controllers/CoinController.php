@@ -2,14 +2,14 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Money;
+use App\Models\Coin;
 use Illuminate\Http\Request;
 
 /**
- * Class MoneyController
+ * Class CoinController
  * @package App\Http\Controllers
  */
-class MoneyController extends Controller
+class CoinController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -18,10 +18,10 @@ class MoneyController extends Controller
      */
     public function index()
     {
-        $money = Money::paginate();
+        $coins = Coin::paginate();
 
-        return view('money.index', compact('money'))
-            ->with('i', (request()->input('page', 1) - 1) * $money->perPage());
+        return view('coin.index', compact('coins'))
+            ->with('i', (request()->input('page', 1) - 1) * $coins->perPage());
     }
 
     /**
@@ -31,8 +31,8 @@ class MoneyController extends Controller
      */
     public function create()
     {
-        $money = new Money();
-        return view('money.create', compact('money'));
+        $coin = new Coin();
+        return view('coin.create', compact('coin'));
     }
 
     /**
@@ -43,12 +43,12 @@ class MoneyController extends Controller
      */
     public function store(Request $request)
     {
-        request()->validate(Money::$rules);
+        request()->validate(Coin::$rules);
 
-        $money = Money::create($request->all());
+        $coin = Coin::create($request->all());
 
-        return redirect()->route('money.index')
-            ->with('success', 'Money created successfully.');
+        return redirect()->route('coins.index')
+            ->with('success', 'Coin created successfully.');
     }
 
     /**
@@ -59,9 +59,9 @@ class MoneyController extends Controller
      */
     public function show($id)
     {
-        $money = Money::find($id);
+        $coin = Coin::find($id);
 
-        return view('money.show', compact('money'));
+        return view('coin.show', compact('coin'));
     }
 
     /**
@@ -72,26 +72,26 @@ class MoneyController extends Controller
      */
     public function edit($id)
     {
-        $money = Money::find($id);
+        $coin = Coin::find($id);
 
-        return view('money.edit', compact('money'));
+        return view('coin.edit', compact('coin'));
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request $request
-     * @param  Money $money
+     * @param  Coin $coin
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Money $money)
+    public function update(Request $request, Coin $coin)
     {
-        request()->validate(Money::$rules);
+        request()->validate(Coin::$rules);
 
-        $money->update($request->all());
+        $coin->update($request->all());
 
-        return redirect()->route('money.index')
-            ->with('success', 'Money updated successfully');
+        return redirect()->route('coins.index')
+            ->with('success', 'Coin updated successfully');
     }
 
     /**
@@ -101,9 +101,9 @@ class MoneyController extends Controller
      */
     public function destroy($id)
     {
-        $money = Money::find($id)->delete();
+        $coin = Coin::find($id)->delete();
 
-        return redirect()->route('money.index')
-            ->with('success', 'Money deleted successfully');
+        return redirect()->route('coins.index')
+            ->with('success', 'Coin deleted successfully');
     }
 }

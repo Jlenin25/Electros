@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('template_title')
-    Money
+    Coin
 @endsection
 
 @section('content')
@@ -13,11 +13,11 @@
                         <div style="display: flex; justify-content: space-between; align-items: center;">
 
                             <span id="card_title">
-                                {{ __('Money') }}
+                                {{ __('Coin') }}
                             </span>
 
                              <div class="float-right">
-                                <a href="{{ route('money.create') }}" class="btn btn-primary btn-sm float-right"  data-placement="left">
+                                <a href="{{ route('coins.create') }}" class="btn btn-primary btn-sm float-right"  data-placement="left">
                                   {{ __('Create New') }}
                                 </a>
                               </div>
@@ -42,16 +42,16 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @foreach ($money as $money)
+                                    @foreach ($coins as $coin)
                                         <tr>
                                             <td>{{ ++$i }}</td>
                                             
-											<td>{{ $money->moneda }}</td>
+											<td>{{ $coin->moneda }}</td>
 
                                             <td>
-                                                <form action="{{ route('money.destroy',$money->id) }}" method="POST">
-                                                    <a class="btn btn-sm btn-primary " href="{{ route('money.show',$money->id) }}"><i class="fa fa-fw fa-eye"></i> Show</a>
-                                                    <a class="btn btn-sm btn-success" href="{{ route('money.edit',$money->id) }}"><i class="fa fa-fw fa-edit"></i> Edit</a>
+                                                <form action="{{ route('coins.destroy',$coin->id) }}" method="POST">
+                                                    <a class="btn btn-sm btn-primary " href="{{ route('coins.show',$coin->id) }}"><i class="fa fa-fw fa-eye"></i> Show</a>
+                                                    <a class="btn btn-sm btn-success" href="{{ route('coins.edit',$coin->id) }}"><i class="fa fa-fw fa-edit"></i> Edit</a>
                                                     @csrf
                                                     @method('DELETE')
                                                     <button type="submit" class="btn btn-danger btn-sm"><i class="fa fa-fw fa-trash"></i> Delete</button>
@@ -64,7 +64,7 @@
                         </div>
                     </div>
                 </div>
-                {!! $money->links() !!}
+                {!! $coins->links() !!}
             </div>
         </div>
     </div>

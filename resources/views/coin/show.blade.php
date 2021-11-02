@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('template_title')
-    {{ $money->name ?? 'Show Money' }}
+    {{ $coin->name ?? 'Show Coin' }}
 @endsection
 
 @section('content')
@@ -11,10 +11,10 @@
                 <div class="card">
                     <div class="card-header">
                         <div class="float-left">
-                            <span class="card-title">Show Money</span>
+                            <span class="card-title">Show Coin</span>
                         </div>
                         <div class="float-right">
-                            <a class="btn btn-primary" href="{{ route('money.index') }}"> Back</a>
+                            <a class="btn btn-primary" href="{{ route('coins.index') }}"> Back</a>
                         </div>
                     </div>
 
@@ -22,7 +22,7 @@
                         
                         <div class="form-group">
                             <strong>Moneda:</strong>
-                            {{ $money->moneda }}
+                            {{ $coin->moneda }}
                         </div>
 
                     </div>

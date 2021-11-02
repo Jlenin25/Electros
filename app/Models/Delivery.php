@@ -38,7 +38,7 @@ class Delivery extends Model
      */
     public function purchases()
     {
-        return $this->hasMany('App\Models\Purchase', 'id_delivery', 'id');
+        return $this->hasMany('App\Models\Purchase', 'id_deliverie', 'id');
     }
     
 
