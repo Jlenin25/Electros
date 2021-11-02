@@ -34,7 +34,6 @@
 										<th>Estado</th>
 										<th>Pie de página</th>
 										<th>Condiciones</th>
-										<th>Fecha de venta</th>
 										<th>Acciones</th>
 									</tr>
 								</thead>
@@ -45,8 +44,8 @@
 										<th>{{ $cotizacion->id_client }}</th>
 										<th>{{ $cotizacion->id_user }}</th>
 										<th>{{ $cotizacion->id_expire }}</th>
-										<th>{{ $cotizacion->id_money }}</th>
-										<th>{{ $cotizacion->id_delivery }}</th>
+										<th>{{ $cotizacion->id_coin }}</th>
+										<th>{{ $cotizacion->id_deliverie }}</th>
 										<th>{{ $cotizacion->id_waytopay }}</th>
 										<th>{{ $cotizacion->id_statepurchase }}</th>
 										<th>{{ $cotizacion->id_footer }}</th>

@@ -15,17 +15,19 @@ class Client extends Model
         'celular1',
         'email1',
         'paginaweb',
-        // 'id_estadocliente',
+        'id_stateclient',
         'razonsocia',
         'contacto',
         'celular2',
         'email2',
-        // 'id_area',
-        // 'id_user'
+        'id_area',
+        'id_user'
     ];
 
-    public function products()
-    {
+    public function products() {
         return $this->hasMany(Product::class);
+    }
+    public function purchases() {
+        return $this->hasMany(Purchase::class);
     }
 }

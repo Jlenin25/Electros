@@ -24,11 +24,11 @@
 	<div class="row">
 		<div class="col">
 			<label for="exampleInputName1">Moneda</label>
-			<input type="text" value="{{ $purchase->id_money }}" class="form-control" name="id_money">
+			<input type="text" value="{{ $purchase->id_coin }}" class="form-control" name="id_coin">
 		</div>
 		<div class="col">
 			<label for="exampleInputName1">Tiempo de entrega</label>
-			<input type="text" value="{{ $purchase->id_delivery }}" class="form-control" name="id_delivery">
+			<input type="text" value="{{ $purchase->id_deliverie }}" class="form-control" name="id_deliverie">
 		</div>
 	</div>
 	<br>
@@ -56,52 +56,58 @@
 	<br>
 	<br>
 	<br>
-	<div class="form-group">
-		<button type="submit" class="btn btn-primary float-right">Agregar Producto</button>
-	</div>
-	<div class="form-group">
-		<h4 class="card-title">Detalles de venta</h4>
-		<div class="table-responsive col-md-12">
-			<table id="detalles" class="table table-striped">
-				<thead>
-					<tr>
-						<th>Eliminar</th>
-						<th>Producto</th>
-						<th>Precio</th>
-						<th>Cantidad</th>
-						<th>Sub Total</th>
-					</tr>
-				</thead>
-				<tbody>
-					<tr>
-						<th colspan="4">
-							<p align="right">Subtotal: </p>
-						</th>
-						<th colspan="4">
-							<p align="right"><span id="subtotal">0.00</span></p>
-						</th>
-					</tr>
-					<tr>
-						<th colspan="4">
-							<p align="right">IGV: </p>
-						</th>
-						<th colspan="4">
-							<p align="right"><span id="igv">0.00</span></p>
-						</th>
-					</tr>
-					<tr>
-						<th colspan="4">
-							<p align="right">Total: </p>
-						</th>
-						<th colspan="4">
-							<p align="right">
-								<span id="total">0.00</span>
-								{{-- <input type="hidden" name="total" id="total_pagar"> --}}
-							</p>
-						</th>
-					</tr>
-				</tbody>
-			</table>
+	<form action="" method="post">
+		<div class="form-group">
+			{{-- <div class="col"> --}}
+				<label for="exampleInputName1">Condiciones Generales</label>
+				<input type="text" value="{{ $purchase->id_product }}" class="float-right" name="id_product">
+			{{-- </div> --}}
+			<button type="button" class="btn btn-primary float-right" id="agregar">Agregar Producto</button>
 		</div>
-	</div>
+		<div class="form-group">
+			<h4 class="card-title">Detalles de venta</h4>
+			<div class="table-responsive col-md-12">
+				<table id="detalles" class="table table-striped">
+					<thead>
+						<tr>
+							<th>Eliminar</th>
+							<th>Producto</th>
+							<th>Precio</th>
+							<th>Cantidad</th>
+							<th>Sub Total</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<th colspan="4">
+								<p align="right">Subtotal: </p>
+							</th>
+							<th colspan="4">
+								<p align="right"><span id="subtotal">0.00</span></p>
+							</th>
+						</tr>
+						<tr>
+							<th colspan="4">
+								<p align="right">IGV: </p>
+							</th>
+							<th colspan="4">
+								<p align="right"><span id="igv">0.00</span></p>
+							</th>
+						</tr>
+						<tr>
+							<th colspan="4">
+								<p align="right">Total: </p>
+							</th>
+							<th colspan="4">
+								<p align="right">
+									<span id="total">0.00</span>
+									{{-- <input type="hidden" name="total" id="total_pagar"> --}}
+								</p>
+							</th>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</form>
 </div>

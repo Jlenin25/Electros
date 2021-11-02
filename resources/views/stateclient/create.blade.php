@@ -1,7 +1,7 @@
-@extends('layouts.app')
+@extends('layouts.admin')
 
 @section('template_title')
-    Create Stateclient
+Stateclient
 @endsection
 
 @section('content')

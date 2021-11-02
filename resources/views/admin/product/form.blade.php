@@ -35,11 +35,12 @@
 	<div class="row">
 		<div class="col">
 			<label for="exampleInputName1">Proveedor</label>
-			<select class="form-control" name="id_provider">
+			<input type="text" value="{{ $product->id_provider }}" class="form-control" name="id_provider">
+			{{-- <select class="form-control" name="id_provider" id="id_provider">
 				@foreach($providers as $proveedor)
-				<option value="{{ $proveedor->id }}">{{ $proveedor->nombre }}</option>
+				<option value="{{ $proveedor->id }}">{{ $proveedor->contacto }}</option>
 				@endforeach
-			</select>
+			</select> --}}
 		</div>
 		<div class="col">
 			<label for="exampleInputName1">Fabricante</label>
@@ -50,11 +51,12 @@
 	<div class="row">
 		<div class="col">
 			<label for="exampleInputName1">Categoría</label>
-			<select class="form-control" name="id_category">
+			<input type="text" value="{{ $product->id_categoria }}" class="form-control" name="id_categoria">
+			{{-- <select class="form-control" name="id_categorie" id="id_categorie">
 				@foreach($categories as $categoria)
-				<option value="{{ $categoria->id }}">{{ $categoria->nombre }}</option>
+				<option value="{{ $categoria->id }}">{{ $categoria->name }}</option>
 				@endforeach
-			</select>
+			</select> --}}
 		</div>
 		<div class="col">
 			<label for="exampleInputName1">Precio de Venta</label>
@@ -65,7 +67,8 @@
 	<div class="row">
 		<div class="col">
 			<label for="exampleInputName1">Imágen</label>
-			<input type="file" class="form-control" name="image" id="image">
+			<input type="text" value="{{ $product->imagen }}" class="form-control" name="imagen">
+			{{-- <input type="file" class="form-control" name="imagen" id="image"> --}}
 		</div>
 		<div class="col">
 			<label for="exampleInputName1">Producto / Servicio</label>

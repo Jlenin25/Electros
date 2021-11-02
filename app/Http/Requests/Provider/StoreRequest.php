@@ -4,33 +4,19 @@ namespace App\Http\Requests\Provider;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class StoreRequest extends FormRequest
-{
-    /**
-     * Determine if the user is authorized to make this request.
-     *
-     * @return bool
-     */
-    public function authorize()
-    {
+class StoreRequest extends FormRequest {
+    public function authorize() {
         return true;
     }
-
-    /**
-     * Get the validation rules that apply to the request.
-     *
-     * @return array
-     */
-    public function rules()
-    {
+    public function rules() {
         return [
             'ruc' => 'required|string|max:11|min:11|unique:providers',
             'direccion' => 'nullable|string|max:100',
             'celular1' => 'required|string|max:9|min:9|unique:providers',
             'email1' => 'nullable|string|max:50|unique:providers',
             'paginaweb' => 'required|string|max:30',
-            'id_estadocliente' => 'nullable|string|max:15',
-            'razonsocial' => 'nullable|string|max:15',
+            'id_stateclient' => 'nullable|string|max:15',
+            'razonsocial' => 'nullable|string|max:80',
             'contacto' => 'required|string|max:50',
             'celular2' => 'nullable|string|max:9|min:9|unique:providers',
             'email2' => 'nullable|string|max:50|unique:providers',
@@ -64,11 +50,11 @@ class StoreRequest extends FormRequest
             'paginaweb.string' => 'El valor no es correcto.',
             'paginaweb.max' => 'Solo se permite 50 caracteres.',
             /* ID - ESTADO DEL CLIENTE */
-            'id_estadocliente.string' => 'El valor no es correcto.',
-            'id_estadocliente.max' => 'Solo se permite 15 caracteres.',
+            'id_stateclient.string' => 'El valor no es correcto.',
+            'id_stateclient.max' => 'Solo se permite 15 caracteres.',
             /* RAZON SOCIAL */
             'razonsocial.string' => 'El valor no es correcto.',
-            'razonsocial.max' => 'Solo se permite 15 caracteres.',
+            'razonsocial.max' => 'Solo se permite 80 caracteres.',
             /* CONTACTO */
             'contacto.required' => 'Este campo es requerido.',
             'contacto.string' => 'El valor no es correcto.',

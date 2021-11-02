@@ -111,7 +111,7 @@
           </li>
           <hr style="margin:5px 80px 20px 10px">
           <li class="nav-item">
-            <a class="nav-link" href="{{ route('categories.index') }}">
+            <a class="nav-link" href="{{ route('categorias.index') }}">
               <i class="fa fa-puzzle-piece menu-icon"></i>
               <span class="menu-title">Categorías</span>
             </a>
@@ -154,10 +154,6 @@
               <span class="menu-title">Cotización</span>
             </a>
           </li>
-          
-
-
-
           <li class="nav-item">
             <a class="nav-link" href="{{ route('areas.index') }}">
               <i class="fa fa-puzzle-piece menu-icon"></i>
@@ -197,13 +193,13 @@
           <li class="nav-item">
             <a class="nav-link" href="{{ route('stateclients.index') }}">
               <i class="fa fa-puzzle-piece menu-icon"></i>
-              <span class="menu-title">Estado - Cliente</span>
+              <span class="menu-title">Estado - Cliente / Proveedor</span>
             </a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="{{ route('statepurchases.index') }}">
               <i class="fa fa-puzzle-piece menu-icon"></i>
-              <span class="menu-title">Estado - Cotización</span>
+              <span class="menu-title">Estado - Cliente / Proveedor</span>
             </a>
           </li>
           <li class="nav-item">

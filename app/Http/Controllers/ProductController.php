@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Product;
-use App\Models\Category;
+use App\Models\Categoria;
 use App\Models\Provider;
 use Illuminate\Http\Request;
 use App\Http\Requests\Product\StoreRequest;
@@ -18,25 +18,25 @@ class ProductController extends Controller
 
     public function create() {
         $product = new Product();
-        $categories = Category::get();
+        $categorias = Categoria::get();
         $providers = Provider::get();
         return view('admin.product.create', compact(
             'product',
-            'categories',
+            'categorias',
             'providers'
         ));
     }
 
     public function store(StoreRequest $request) {
-        if($request->hasFile('image')) {
-            $file = $request->file('image');
+        if($request->hasFile('imagen')) {
+            $file = $request->file('imagen');
             $image_name = time().'_'.$file->getClientOriginalName();
-            $file->move(public_path('/image'),$image_name);
+            $file->move(public_path('/imagen'),$image_name);
         };
         $product = Product::create($request->all()+[
             'imagen'=>$image_name,
         ]);
-        $product->update(['code'=>$product->id]);
+        $product->update(['codigo'=>$product->id]);
         return redirect()->route('products.index');
     }
 
@@ -45,11 +45,11 @@ class ProductController extends Controller
     }
 
     public function edit(Product $product) {
-        $categories = Category::get();
+        $categorias = Categoria::get();
         $providers = Provider::get();
         return view('admin.product.edit', compact(
             'product',
-            'categories',
+            'categorias',
             'providers'
         ));
     }

@@ -4,36 +4,23 @@ namespace App\Http\Requests\Client;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class UpdateRequest extends FormRequest
-{
-    /**
-     * Determine if the user is authorized to make this request.
-     *
-     * @return bool
-     */
-    public function authorize()
-    {
+class UpdateRequest extends FormRequest {
+    public function authorize() {
         return true;
     }
-
-    /**
-     * Get the validation rules that apply to the request.
-     *
-     * @return array
-     */
     public function rules()
     {
         return [
-            'ruc' => 'required|string|max:11|min:11|unique:providers',
+            'ruc' => 'required|string|max:11|min:11|unique:clients',
             'direccion' => 'nullable|string|max:100',
-            'celular1' => 'required|string|min:9|unique:providers,celular1,'.$this->route('provider')->id.'|max:9',
-            'email1' => 'nullable|string|unique:providers,email1'.$this->route('provider')->id.'|max:50',
+            'celular1' => 'required|string|min:9|unique:clients,celular1,'.$this->route('client')->id.'|max:9',
+            'email1' => 'nullable|string|unique:clients,email1'.$this->route('client')->id.'|max:50',
             'paginaweb' => 'required|string|max:30',
-            'id_estadocliente' => 'nullable|string|max:15',
-            'razonsocial' => 'nullable|string|max:15',
+            'id_stateclient' => 'nullable|string|max:15',
+            'razonsocial' => 'nullable|string|max:80',
             'contacto' => 'required|string|max:50',
-            'celular2' => 'nullable|string|min:9|unique:providers,celular2'.$this->route('provider')->id.'|max:9',
-            'email2' => 'nullable|string|unique:providers,email2'.$this->route('provider')->id.'|max:50',
+            'celular2' => 'nullable|string|min:9|unique:clients,celular2'.$this->route('client')->id.'|max:9',
+            'email2' => 'nullable|string|unique:clients,email2'.$this->route('client')->id.'|max:50',
             'id_area' => 'nullable|string|max:15',
             'id_user' => 'nullable|string|max:15'
         ];
@@ -65,11 +52,11 @@ class UpdateRequest extends FormRequest
             'paginaweb.string' => 'El valor no es correcto.',
             'paginaweb.max' => 'Solo se permite 50 caracteres.',
             /* ID - ESTADO DEL CLIENTE */
-            'id_estadocliente.string' => 'El valor no es correcto.',
-            'id_estadocliente.max' => 'Solo se permite 15 caracteres.',
+            'id_stateclient.string' => 'El valor no es correcto.',
+            'id_stateclient.max' => 'Solo se permite 15 caracteres.',
             /* RAZON SOCIAL */
             'razonsocial.string' => 'El valor no es correcto.',
-            'razonsocial.max' => 'Solo se permite 15 caracteres.',
+            'razonsocial.max' => 'Solo se permite 80 caracteres.',
             /* CONTACTO */
             'contacto.required' => 'Este campo es requerido.',
             'contacto.string' => 'El valor no es correcto.',

@@ -1,7 +1,7 @@
-@extends('layouts.app')
+@extends('layouts.admin')
 
 @section('template_title')
-    Statepurchase
+Statepurchase
 @endsection
 
 @section('content')

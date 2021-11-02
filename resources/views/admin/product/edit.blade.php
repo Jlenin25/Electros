@@ -17,7 +17,7 @@
             <form class="forms-sample" method="POST" action="{{ route('products.update', $product->id) }}">
 							{{ method_field('PATCH') }}
               @csrf
-              @include('admin.category.form')
+              @include('admin.product.form')
               <button type="submit" class="btn btn-primary mr-2">Actualizar</button>
               <a href="{{ route('products.index') }}"class="btn btn-light">Cancelar</a>
             </form>

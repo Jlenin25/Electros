@@ -1,5 +1,4 @@
 <?php
-
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -9,15 +8,17 @@ class Purchase extends Model {
     use HasFactory;
 
     protected $fillable = [
+        'codigo',
         'id_client',
         'id_user',
         'id_expire',
-        'id_money',
-        'id_delivery',
+        'id_coin',
+        'id_deliverie',
         'id_waytopay',
         'id_statepurchase',
         'id_footer',
-        'id_condition'
+        'id_condition',
+        'id_product'
     ];
 
     public function client() {
@@ -38,14 +39,17 @@ class Purchase extends Model {
     public function waytopay() {
         return $this->blongsTo(Waytopay::class);
     }    
-    public function money() {
-        return $this->blongsTo(Money::class);
+    public function coin() {
+        return $this->blongsTo(Coin::class);
     }    
     public function footer() {
         return $this->blongsTo(Footer::class);
     }    
-    public function delivery() {
-        return $this->blongsTo(Delivery::class);
+    public function deliverie() {
+        return $this->blongsTo(Deliverie::class);
+    }
+    public function products() {
+        return $this->blongsTo(Product::class);
     }
 
     public function purchaseDetails() {
