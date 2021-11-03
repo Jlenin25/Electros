@@ -61,24 +61,28 @@
 			<input type="text" value="{{ $purchase->id_condition }}" class="form-control" name="id_condition">
 		</div>
 	</div>
+	<hr>
+	<div class="row">
+		<div class="col">
+			<label for="exampleInputName1">Producto</label>
+			<select class="form-control" name="id_product" id="id_product">
+				@foreach($product as $producto)
+				<option value="{{ $producto->id }}">{{ $producto->nombre }}</option>
+				@endforeach
+			</select>
+		</div>
+		<div class="col">
+			<label for="exampleInputName1">Cantidad</label>
+			<input type="number" class="form-control" name="cantidad" id="cantidad" aria-describedby="helpId">
+		</div>
+	</div>
 	<br>
 	<br>
 	<br>
 
-
-
-
-
-
-
-
-
-
-	<div>
-		<form class="forms-sample" method="POST" action="{{ route('purchases.store') }}">
-			@csrf
-			@include('admin.purchase._form')
-		</form>
+		<div class="form-group">
+			<button type="submit" class="btn btn-primary float-right" id="agregar">Agregar Producto</button>
+		</div>
 		<div class="form-group">
 			<h4 class="card-title">Detalles de venta</h4>
 			<div class="table-responsive col-md-12">
@@ -90,40 +94,8 @@
 							<th>Cantidad</th>
 							<th>Precio Venta</th>
 							<th>Total</th>
-							<th>Precio Neto</th>
 						</tr>
 					</thead>
-					<tbody>
-						@foreach($product as $producto)
-						<tr>
-							<tr class="selected" id="fila'+cont+'">
-								<td>
-									<button type="button" class="btn btn-danger btn-sm" onclick="eliminar('+cont+');"><i class="fa fa-times"></i></button>
-								</td>
-								<td>
-									{{ $producto->nombre }}
-								</td>
-								<td>
-									<input type="number" name="cantidad" value="cantidad"><input type="hidden" class="form-control" value="cantidad" disabled>
-								</td>
-								<td>
-									
-									<input type="hidden" name="precioventa" value="{{ $producto->precioventa }}"><input type="number" class="form-control" value="{{ $producto->precioventa }}" disabled>
-								</td>
-								<td align="right">S/<script>'+subtotal[cont]+'</script></td>
-								<td>
-									<input type="hidden" name="precioneto" value="precioneto"><input type="number" class="form-control" value="precioneto" disabled>
-								</td>
-							</tr>
-							{{-- <th>
-								<button href="{{ route('purchases.destroy',$producto->id) }}"><i class="fas fa-trash"></i></button>
-							</th>
-							<th>{{ $producto->nombre }}</th>
-							<th>{{ $producto->precioventa }}</th>
-							<th><input type="number" id="cantidad"></th> --}}
-						</tr>
-						@endforeach
-					</tbody>
 					<tfoot>
 						<tr>
 							<th colspan="4">
@@ -153,10 +125,11 @@
 							</th>
 						</tr>
 					</tfoot>
+					<tbody>
+					</tbody>
 				</table>
 			</div>
 		</div>
-	</div>
 
 
 

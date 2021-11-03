@@ -26,6 +26,10 @@
     </div>
   </div>
 </div>
+@endsection
+@section('scripts')
+{!! Html::script('melody/js/alerts.js') !!}
+{!! Html::script('melody/js/avground.js') !!}
 <script>
   $(document).ready(function() {
       $("#agregar").click(function(){
@@ -33,21 +37,22 @@
       });
   });
 
-  var cont = 0; total = 0; subtotal = [];
+  var cont = 0;
+  total = 0;
+  subtotal = [];
 
   $("#guardar").hide();
-
   function agregar() {
       id_product = $("#id_product").val();
       producto = $("#id_product option:selected").text();
       cantidad = $("#cantidad").val();
-      price = $("price").val();
-      impuesto = $("#tax").val();
+      precioventa = 50;
+      impuesto = 0.18;
 
-      if(id_product!="" && cantidad!="" && cantidad>0 && price!="") {
-          subtotal[cont] = cantidad * price;
+      if(id_product!="" && cantidad!="" && cantidad>0) {
+          subtotal[cont] = cantidad * precioventa;
           total = total + subtotal[cont];
-          var fila = '<tr class="select" id="fila'+cont+'"><td><button type="button" class="btn btn-danger btn-sm" onclick="eliminar('+cont+');"><i class="fa fa-times"></i></button></td>  <td><input type="hidden" name="id_product[] value="'+id_product+'">'+producto+'</td><td><input type="hidden" id="price[]" name="price[]" value="'+price+'"><input class="form-control" type="number" id="price[]" value="'+price+'" disable></td><td><input type="hidden" name="cantidad[]" value="'+cantidad+'"><input class="form-control" type="number" value="'+cantidad+'" disable></td><td align="right">S/.'+subtotal[cont]+'</td></tr>';
+          var fila = '<tr class="selected" id="fila'+cont+'"><td><button type="button" class="btn btn-danger btn-sm" onclick="eliminar('+cont+')"><i class="fa fa-times"></i></button></td><td><input type="hidden" name="id_product[]" value="'+id_product+'">'+producto+'</td><td><input type="hidden" name="cantidad[]" value="'+cantidad[]+'"><input type="number" class="form-control" value="'+cantidad[]+'"></td><td><input type="hidden" name="precioventa[]" id="precioventa[]" value="'+precioventa+'"><input type="number" name="precioventa[]" id="precioventa[]" class="form-control" value="'+precioventa+'" disabled></td><td align="right">S/'+subtotal[cont]+'</td><td><input type="hidden" name="precioneto" value="precioneto"><input type="number" class="form-control" value="precioneto" disabled></td></tr>';
           cont++;
           limpiar();
           totales();
@@ -63,7 +68,7 @@
 
   function limpiar() {
       $("#cantidad").val("");
-      $("#price").val("");
+      $("#precioventa").val("");
   }
 
   function totales() {
@@ -83,7 +88,7 @@
   }
 
   function eliminar(index) {
-      total = total-subtotal[index];
+      total = total - subtotal[index];
       total_impuesto = total*impuesto/100;
       total_pagar_html = total + total_impuesto;
       $("#total").html("PEN"+total);

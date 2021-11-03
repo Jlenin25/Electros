@@ -59,6 +59,8 @@ class CreatePurchasesTable extends Migration {
                         ->constrained('products')
                         ->cascadeOnUpdate()
                         ->nullOnDelete();
+                  $table->decimal('impuesto');
+                  $table->decimal('total');
                   $table->timestamps();
             });
       }

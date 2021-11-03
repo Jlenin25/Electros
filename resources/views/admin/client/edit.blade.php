@@ -17,7 +17,7 @@
             <form class="forms-sample" method="POST" action="{{ route('clients.update', $client->id) }}">
 							{{ method_field('PATCH') }}
               @csrf
-              @include('admin.category.form')
+              @include('admin.client.form')
               <button type="submit" class="btn btn-primary mr-2">Actualizar</button>
               <a href="{{ route('clients.index') }}"class="btn btn-light">Cancelar</a>
             </form>

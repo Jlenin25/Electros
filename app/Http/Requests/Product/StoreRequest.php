@@ -33,7 +33,6 @@ class StoreRequest extends FormRequest
             'nombre.required' => 'Este campo es requerido.',
             'nombre.string' => 'El valor no es correcto.',
             'nombre.max' => 'Solo se permite 255 caracteres.',
-            'ruc.unique' => 'Ya se encuentra registrado.',
             /* Precio de Costo */
             'preciocosto' => 'El campo es requerido',
             /* Descripcion */

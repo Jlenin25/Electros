@@ -14,13 +14,13 @@ class UpdateRequest extends FormRequest {
             'ruc' => 'required|string|max:11|min:11|unique:clients',
             'direccion' => 'nullable|string|max:100',
             'celular1' => 'required|string|min:9|unique:clients,celular1,'.$this->route('client')->id.'|max:9',
-            'email1' => 'nullable|string|unique:clients,email1'.$this->route('client')->id.'|max:50',
+            'email1' => 'nullable|string|unique:clients,email1,'.$this->route('client')->id.'|max:50',
             'paginaweb' => 'required|string|max:30',
             'id_stateclient' => 'nullable|string|max:15',
             'razonsocial' => 'nullable|string|max:80',
             'contacto' => 'required|string|max:50',
             'celular2' => 'nullable|string|min:9|unique:clients,celular2'.$this->route('client')->id.'|max:9',
-            'email2' => 'nullable|string|unique:clients,email2'.$this->route('client')->id.'|max:50',
+            'email2' => 'nullable|string|unique:clients,email2,'.$this->route('client')->id.'|max:50',
             'id_area' => 'nullable|string|max:15',
             'id_user' => 'nullable|string|max:15'
         ];

@@ -18,7 +18,9 @@ class Purchase extends Model {
         'id_statepurchase',
         'id_footer',
         'id_condition',
-        'id_product'
+        'id_product',
+        'impuesto',
+        'total'
     ];
 
     public function client() {

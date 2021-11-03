@@ -29,13 +29,12 @@ class PurchaseController extends Controller
             'product', 'cliente', 'user'
         ));
     }
-    
     public function store(StoreRequest $request) {
         $purchase = Purchase::create($request->all());
-        foreach($request->id_product as $key=>$product) {
-            $results[] = array('id_product'=>$request->id_product[$key], 'cantidad'=>$request->cantidad[$key], 'precioventa'=>$request->precioventa[$key]);
-        }
-        $purchase->purchaseDetails()->createMany($results);
+        // foreach($request->id_product as $key=>$product) {
+        //     $results[] = array('id_product'=>$request->id_product[$key], 'cantidad'=>$request->cantidad[$key], 'precioventa'=>$request->precioventa[$key]);
+        // }
+        // $purchase->purchaseDetails()->createMany($results);
         return redirect()->route('purchases.index');
     }
 
