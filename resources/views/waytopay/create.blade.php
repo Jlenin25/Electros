@@ -1,30 +1,28 @@
-@extends('layouts.app')
-
-@section('template_title')
-    Create Waytopay
-@endsection
+@extends('layouts.main',['activePage' => 'pagos', 'titlePage' => __('FORMAS DE PAGOS')] )
 
 @section('content')
-    <section class="content container-fluid">
-        <div class="row">
-            <div class="col-md-12">
+<div class="content">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-md-12">
+            <div class="card">
+              <div class="card-header card-header-primary">
+                <h4 class="card-title">FORMAS DE PAGO</h4>
+                <p class="card-category">REGISTRAR FORMAS DE PAGO</p>
+              </div>
+              <div class="card-body">
+  
+                <form method="POST" action="{{ route('waytopays.store') }}"  role="form" enctype="multipart/form-data">
+                    @csrf
 
-                @includeif('partials.errors')
+                    @include('waytopay.form')
 
-                <div class="card card-default">
-                    <div class="card-header">
-                        <span class="card-title">Create Waytopay</span>
-                    </div>
-                    <div class="card-body">
-                        <form method="POST" action="{{ route('waytopays.store') }}"  role="form" enctype="multipart/form-data">
-                            @csrf
-
-                            @include('waytopay.form')
-
-                        </form>
-                    </div>
-                </div>
+                </form>
+                
+              </div>
             </div>
         </div>
-    </section>
+      </div>
+    </div>
+  </div>
 @endsection

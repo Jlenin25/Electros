@@ -1,30 +1,28 @@
-@extends('layouts.admin')
-
-@section('template_title')
-Stateclient
-@endsection
+@extends('layouts.main',['activePage' => 'estado', 'titlePage' => __('ESTADOS')] )
 
 @section('content')
-    <section class="content container-fluid">
-        <div class="row">
-            <div class="col-md-12">
+<div class="content">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-md-12">
+            <div class="card">
+              <div class="card-header card-header-primary">
+                <h4 class="card-title">ESTADO DEL CLIENTE</h4>
+                <p class="card-category">REGISTRAR ESTADO DEL CLIENTE</p>
+              </div>
+              <div class="card-body">
+  
+                <form method="POST" action="{{ route('stateclients.store') }}"  role="form" enctype="multipart/form-data">
+                    @csrf
 
-                @includeif('partials.errors')
+                    @include('stateclient.form')
 
-                <div class="card card-default">
-                    <div class="card-header">
-                        <span class="card-title">Create Stateclient</span>
-                    </div>
-                    <div class="card-body">
-                        <form method="POST" action="{{ route('stateclients.store') }}"  role="form" enctype="multipart/form-data">
-                            @csrf
-
-                            @include('stateclient.form')
-
-                        </form>
-                    </div>
-                </div>
+                </form>
+                
+              </div>
             </div>
         </div>
-    </section>
+      </div>
+    </div>
+  </div>
 @endsection

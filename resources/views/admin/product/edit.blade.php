@@ -1,28 +1,27 @@
-@extends('layouts.admin')
-<link rel="stylesheet" href="../../vendors/iconfonts/font-awesome/css/all.min.css">
-<link rel="stylesheet" href="../../vendors/css/vendor.bundle.base.css">
-<link rel="stylesheet" href="../../vendors/css/vendor.bundle.addons.css">
-<link rel="stylesheet" href="../../css/style.css">
-<link rel="shortcut icon" href="../../images/favicon.png" />
+@extends('layouts.main',['activePage' => 'producto', 'titlePage' => __('PRODUCTOS')])
+
 @section('content')
-<div class="main-panel">        
-  <div class="content-wrapper">
-    <div class="page-header">
-      <h3 class="page-title">Editar Producto</h3>
-    </div>
+<div class="content">
+  <div class="container-fluid">
     <div class="row">
-      <div class="col-12 grid-margin stretch-card">
-        <div class="card">
-          <div class="card-body">
-            <form class="forms-sample" method="POST" action="{{ route('products.update', $product->id) }}">
-							{{ method_field('PATCH') }}
-              @csrf
-              @include('admin.product.form')
-              <button type="submit" class="btn btn-primary mr-2">Actualizar</button>
-              <a href="{{ route('products.index') }}"class="btn btn-light">Cancelar</a>
-            </form>
+      <div class="col-md-12">
+          <div class="card">
+            <div class="card-header card-header-primary">
+              <h4 class="card-title">PRODUCTO</h4>
+              <p class="card-category">ACTUALIZAR PRODUCTO</p>
+            </div>
+            <div class="card-body">
+
+              <form class="forms-sample" method="POST" action="{{ route('products.update', $product->id) }}">
+                {{ method_field('PATCH') }}
+                @csrf
+                @include('admin.product.form')
+                <button type="submit" class="btn btn-primary mr-2">Actualizar</button>
+                <a href="{{ route('products.index') }}"class="btn btn-light">Cancelar</a>
+              </form>
+
+            </div>
           </div>
-        </div>
       </div>
     </div>
   </div>

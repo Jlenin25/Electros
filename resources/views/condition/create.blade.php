@@ -1,30 +1,28 @@
-@extends('layouts.app')
-
-@section('template_title')
-    Create Condition
-@endsection
+@extends('layouts.main',['activePage' => 'condicion', 'titlePage' => __('CONDICIONES')])
 
 @section('content')
-    <section class="content container-fluid">
-        <div class="row">
-            <div class="col-md-12">
+<div class="content">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-md-12">
+            <div class="card">
+              <div class="card-header card-header-primary">
+                <h4 class="card-title">CONDICION</h4>
+                <p class="card-category">REGISTRAR CONDICION</p>
+              </div>
+              <div class="card-body">
+  
+                <form method="POST" action="{{ route('conditions.store') }}"  role="form" enctype="multipart/form-data">
+                    @csrf
 
-                @includeif('partials.errors')
+                    @include('condition.form')
 
-                <div class="card card-default">
-                    <div class="card-header">
-                        <span class="card-title">Create Condition</span>
-                    </div>
-                    <div class="card-body">
-                        <form method="POST" action="{{ route('conditions.store') }}"  role="form" enctype="multipart/form-data">
-                            @csrf
-
-                            @include('condition.form')
-
-                        </form>
-                    </div>
-                </div>
+                </form>
+                
+              </div>
             </div>
         </div>
-    </section>
+      </div>
+    </div>
+  </div>
 @endsection

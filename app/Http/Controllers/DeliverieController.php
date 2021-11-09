@@ -18,7 +18,7 @@ class DeliverieController extends Controller
      */
     public function index()
     {
-        $deliveries = Deliverie::paginate();
+        $deliveries = Deliverie::paginate(10);
 
         return view('deliverie.index', compact('deliveries'))
             ->with('i', (request()->input('page', 1) - 1) * $deliveries->perPage());

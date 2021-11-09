@@ -10,7 +10,7 @@ use App\Http\Requests\Provider\UpdateRequest;
 class ProviderController extends Controller
 {
     public function index() {
-        $providers = Provider::get();
+        $providers = Provider::paginate(10);
         return view('admin.provider.index', compact('providers'));
     }
 
@@ -21,7 +21,7 @@ class ProviderController extends Controller
     
     public function store(StoreRequest $request) {
         Provider::create($request->all());
-        return redirect()->route('providers.index');
+        return redirect()->route('providers.index')->with('success','PROVEEDOR REGISTRADO EXITOSAMENTE');
     }
 
     public function show(Provider $provider) {
@@ -34,11 +34,11 @@ class ProviderController extends Controller
 
     public function update(UpdateRequest $request, Provider $provider) {
         $provider->update($request->all());
-        return redirect()->route('providers.index');
+        return redirect()->route('providers.index')->with('success','PROVEEDOR ACTUALIZADO EXITOSAMENTE');
     }
 
     public function destroy(Provider $provider) {
         $provider->delete();
-        return redirect()->route('providers.index');
+        return redirect()->route('providers.index')->with('success','PROVEEDOR ELIMINADO EXITOSAMENTE');
     }
 }

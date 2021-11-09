@@ -1,65 +1,65 @@
-@extends('layouts.admin')
+@extends('layouts.main',['activePage' => 'categoria', 'titlePage' => __('CATEGORIAS')] )
 @section('content')
-<div class="main-panel">
-	<div class="content-wrapper">
-		<div class="page-header">
-			<h3 class="page-title">
-				Categorías
-			</h3>
-		</div>
-		<div class="card">
-			<div class="card-body">
-				<div class="d-flex justify-content-between">
-					<h4 class="card-title"></h4>
-					<button type="button" style="background:transparent; border:none" data-bs-toggle="dropdown" aria-expanded="false">
-						<i class="fas fa-ellipsis-v"></i>
-					</button>
-					<ul class="dropdown-menu dropdown-menu-end">
-						<li><a class="dropdown-item" href="{{ route('categorias.create') }}">Agregar</a></li>
-					</ul>
-				</div>
-				<div class="row">
-					<div class="col-12">
-						<div class="table-responsive">
-							<table id="order-listing" class="table">
-								<thead>
-									<tr>
+	<div class="content">
+		<div class="container-fluid">
+			<div class="row">
+				<div class="col-md-12">
+					<div class="row">
+						<div class="col-md-12">
+							<div class="card">
+								<div class="card-header card-header-primary">
+									<h4 class="card-title">CATEGORIAS</h4>
+									<p class="card-category">Categorias registrados</p>
+
+								</div>
+
+								<div class="card-body">
+									@if (session('success'))
+										<div class="alert alert-success" role="success">
+											{{session('success')}}
+										</div>		
+									@endif
+									<div class="row">
+										<div class="col-12 text-right">
+											<a href="{{ route('categorias.create') }}" class="btn btn-sm btn-primary">Añadir Categoria</a>
+										</div>
+									</div>
+									<div class="table-responsive"></div>
+									<table class="table">
+										<thead class="text-primary">
 											<th>Nombre</th>
-											<th>Descipción</th>
-											<th>Acciones</th>
-									</tr>
-								</thead>
-								<tbody>
-									@foreach($categorias as $categoria)
-									<tr>
-											<td>{{ $categoria->name }}</td>
-											<td>{{ $categoria->description }}</td>
-											<td>
-												<form action="{{ route('categorias.destroy',$categoria->id) }}" method="POST">
-													<a style="color:black" href="{{ route('categorias.show',$categoria->id) }}"><i class="far fa-eye"></i></a>
-													<a style="color:blue" href="{{ route('categorias.edit',$categoria->id) }}"><i class="fas fa-pen"></i></a>
-													@csrf
-													@method('DELETE')
-													<button style="background:transparent; color:red; border:none" type="submit" href="{{ route('categorias.destroy',$categoria->id) }}"><i class="fas fa-trash"></i></button>
-											</form>
-											</td>
-									</tr>
-									@endforeach
-								</tbody>
-							</table>
+											<th class="text-center">Descipción</th>
+											<th class="text-rigth">Acciones</th>
+										</thead>
+										<tbody>
+											@foreach($categorias as $categoria)
+											<tr>
+												<td>{{ $categoria->name }}</td>
+												<td>{{ $categoria->description }}</td>
+												<td class="td-actions text-right">
+													<a href="{{ route('categorias.edit',$categoria->id) }}" class="btn btn-warning"><i class="material-icons">edit</i></a>
+													<form action="{{ route('categorias.destroy',$categoria->id) }}" method="POST" style="display: inline-block;" onsubmit="return confirm('¿SEGURO DE ELIMINAR?')">
+														@csrf
+														@method('DELETE')
+														<button class="btn btn-danger" type="submit" href="{{ route('categorias.destroy',$categoria->id) }}">
+															<i class="material-icons">delete</i>
+														</button>
+													</form>
+												</td>
+											</tr>	
+											@endforeach
+									    </tbody>
+									</table>
+								</div>
+
+								<div class="card-footer mr auto">
+									{{ $categorias->links() }}
+								</div>
+							</div>
 						</div>
 					</div>
 				</div>
 			</div>
 		</div>
 	</div>
-</div>
 @endsection
-{{-- <script src="../../vendors/js/vendor.bundle.base.js"></script> --}}
-<script src="../../vendors/js/vendor.bundle.addons.js"></script>
-<script src="../../js/off-canvas.js"></script>
-<script src="../../js/hoverable-collapse.js"></script>
-<script src="../../js/misc.js"></script>
-<script src="../../js/settings.js"></script>
-<script src="../../js/todolist.js"></script>
-<script src="../../js/data-table.js"></script>

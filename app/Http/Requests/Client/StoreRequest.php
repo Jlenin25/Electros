@@ -20,13 +20,13 @@ class StoreRequest extends FormRequest
             'celular1' => 'required|string|max:9|min:9|unique:clients',
             'email1' => 'nullable|string|max:50|unique:clients',
             'paginaweb' => 'required|string|max:30',
-            'id_stateclient' => 'required|string|max:15',
+            'id_stateclient' => 'nullable|string|max:15',
             'razonsocial' => 'nullable|string|max:80',
             'contacto' => 'required|string|max:50',
             'celular2' => 'nullable|string|max:9|min:9|unique:clients',
             'email2' => 'nullable|string|max:50|unique:clients',
-            'id_area' => 'required|string|max:15',
-            'id_user' => 'required|string|max:15'
+            'id_area' => 'nullable|string|max:15',
+            'id_user' => 'nullable|string|max:15'
         ];
     }
     public function messages() {

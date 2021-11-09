@@ -10,7 +10,7 @@ use App\Http\Requests\Client\UpdateRequest;
 class ClientController extends Controller
 {
     public function index() {
-        $clients = Client::get();
+        $clients = Client::paginate(5);
         return view('admin.client.index', compact('clients'));
     }
 
@@ -21,11 +21,11 @@ class ClientController extends Controller
     
     public function store(StoreRequest $request) {
         Client::create($request->all());
-        return redirect()->route('clients.index');
+        return redirect()->route('clients.index')->with('success','CLIENTE REGISTRADO EXITOSAMENTE');
     }
 
     public function show(Client $client) {
-        return view('admin.client.show', compact('client'));
+        //return view('admin.client.show', compact('client'));
     }
 
     public function edit(Client $client) {
@@ -34,11 +34,11 @@ class ClientController extends Controller
 
     public function update(UpdateRequest $request, Client $client) {
         $client->update($request->all());
-        return redirect()->route('clients.index');
+        return redirect()->route('clients.index')->with('success','CLIENTE ACTUALIZADO EXITOSAMENTE');
     }
 
     public function destroy(Client $client) {
         $client->delete();
-        return redirect()->route('clients.index');
+        return redirect()->route('clients.index')->with('success','CLIENTE ELIMINADO EXITOSAMENTE');
     }
 }

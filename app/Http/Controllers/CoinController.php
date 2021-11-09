@@ -18,7 +18,7 @@ class CoinController extends Controller
      */
     public function index()
     {
-        $coins = Coin::paginate();
+        $coins = Coin::paginate(5);
 
         return view('coin.index', compact('coins'))
             ->with('i', (request()->input('page', 1) - 1) * $coins->perPage());

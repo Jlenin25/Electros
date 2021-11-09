@@ -10,7 +10,7 @@ use App\Http\Requests\Categoria\UpdateRequest;
 class CategoriaController extends Controller
 {
     public function index() {
-        $categorias = Categoria::get();
+        $categorias = Categoria::paginate(5);
         return view('admin.categoria.index', compact('categorias'));
     }
 
@@ -21,7 +21,7 @@ class CategoriaController extends Controller
     
     public function store(StoreRequest $request) {
         Categoria::create($request->all());
-        return redirect()->route('categorias.index');
+        return redirect()->route('categorias.index')->with('success','CATEGORIA REGISTRADO EXITOSAMENTE');
     }
 
     public function show(Categoria $categoria) {
@@ -34,11 +34,11 @@ class CategoriaController extends Controller
 
     public function update(UpdateRequest $request, Categoria $categoria) {
         $categoria->update($request->all());
-        return redirect()->route('categorias.index');
+        return redirect()->route('categorias.index')->with('success','CATEGORIA ACTUALIZADA EXITOSAMENTE');
     }
 
     public function destroy(Categoria $categoria) {
         $categoria->delete();
-        return redirect()->route('categorias.index');
+        return redirect()->route('categorias.index')->with('success','CATEGORIA ELIMINADA EXITOSAMENTE');
     }
 }

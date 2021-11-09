@@ -18,7 +18,7 @@ class ExpireController extends Controller
      */
     public function index()
     {
-        $expires = Expire::paginate();
+        $expires = Expire::paginate(10);
 
         return view('expire.index', compact('expires'))
             ->with('i', (request()->input('page', 1) - 1) * $expires->perPage());

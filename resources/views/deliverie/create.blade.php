@@ -1,30 +1,28 @@
-@extends('layouts.app')
-
-@section('template_title')
-    Create Delivery
-@endsection
+@extends('layouts.main',['activePage' => 'entrega', 'titlePage' => __('ENTREGAS')])
 
 @section('content')
-    <section class="content container-fluid">
-        <div class="row">
-            <div class="col-md-12">
+<div class="content">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-md-12">
+            <div class="card">
+              <div class="card-header card-header-primary">
+                <h4 class="card-title">ENTREGAS</h4>
+                <p class="card-category">REGISTRAR ENTREGAS</p>
+              </div>
+              <div class="card-body">
+  
+                <form method="POST" action="{{ route('deliveries.store') }}"  role="form" enctype="multipart/form-data">
+                    @csrf
 
-                @includeif('partials.errors')
+                    @include('deliverie.form')
 
-                <div class="card card-default">
-                    <div class="card-header">
-                        <span class="card-title">Create Delivery</span>
-                    </div>
-                    <div class="card-body">
-                        <form method="POST" action="{{ route('deliveries.store') }}"  role="form" enctype="multipart/form-data">
-                            @csrf
-
-                            @include('deliverie.form')
-
-                        </form>
-                    </div>
-                </div>
+                </form>
+                
+              </div>
             </div>
         </div>
-    </section>
+      </div>
+    </div>
+  </div>
 @endsection

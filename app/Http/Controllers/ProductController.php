@@ -12,7 +12,7 @@ use App\Http\Requests\Product\UpdateRequest;
 class ProductController extends Controller
 {
     public function index() {
-        $products = Product::get();
+        $products = Product::paginate(5);
         return view('admin.product.index', compact('products'));
     }
 
@@ -37,7 +37,7 @@ class ProductController extends Controller
             'imagen'=>$image_name,
         ]);
         $product->update(['codigo'=>$product->id]);
-        return redirect()->route('products.index');
+        return redirect()->route('products.index')->with('success','PRODUCTO REGISTRADO EXITOSAMENTE');
     }
 
     public function show(Product $product) {
@@ -56,11 +56,11 @@ class ProductController extends Controller
 
     public function update(UpdateRequest $request, Product $product) {
         $product->update($request->all());
-        return redirect()->route('products.index');
+        return redirect()->route('products.index')->with('success','PRODUCTO CREADO EXITOSAMENTE');
     }
 
     public function destroy(Product $product) {
         $product->delete();
-        return redirect()->route('products.index');
+        return redirect()->route('products.index')->with('success','PRODUCTO ELIMINADO EXITOSAMENTE');
     }
 }

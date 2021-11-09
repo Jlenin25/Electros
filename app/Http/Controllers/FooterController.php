@@ -18,7 +18,7 @@ class FooterController extends Controller
      */
     public function index()
     {
-        $footers = Footer::paginate();
+        $footers = Footer::paginate(10);
 
         return view('footer.index', compact('footers'))
             ->with('i', (request()->input('page', 1) - 1) * $footers->perPage());

@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class PurchaseDetails extends Model
 {
     use HasFactory;
+    protected $table = 'purchase_details';
 
     protected $fillable = [
         'id_purchase',
@@ -16,10 +17,10 @@ class PurchaseDetails extends Model
         'precio'
     ];
 
-    public function purcharse() {
-        return $this->blongsTo(Purcharse::class);
+    public function products() {
+        return $this->belongsTo(Product::class, 'id_product');
     }
-    public function product() {
-        return $this->blongsTo(Product::class);
+    public function purchase() {
+        return $this->belongsTo(Purchase::class, 'id_purchase');
     }
 }

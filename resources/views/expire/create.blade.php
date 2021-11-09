@@ -1,30 +1,29 @@
-@extends('layouts.app')
+@extends('layouts.main',['activePage' => 'expire', 'titlePage' => __('EXPIRAS')])
 
-@section('template_title')
-    Create Expire
-@endsection
 
 @section('content')
-    <section class="content container-fluid">
-        <div class="row">
-            <div class="col-md-12">
+<div class="content">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-md-12">
+            <div class="card">
+              <div class="card-header card-header-primary">
+                <h4 class="card-title">EXPIRA</h4>
+                <p class="card-category">REGISTRAR EXPIRA</p>
+              </div>
+              <div class="card-body">
+  
+                <form method="POST" action="{{ route('expires.store') }}"  role="form" enctype="multipart/form-data">
+                    @csrf
 
-                @includeif('partials.errors')
+                    @include('expire.form')
 
-                <div class="card card-default">
-                    <div class="card-header">
-                        <span class="card-title">Create Expire</span>
-                    </div>
-                    <div class="card-body">
-                        <form method="POST" action="{{ route('expires.store') }}"  role="form" enctype="multipart/form-data">
-                            @csrf
-
-                            @include('expire.form')
-
-                        </form>
-                    </div>
-                </div>
+                </form>
+                
+              </div>
             </div>
         </div>
-    </section>
+      </div>
+    </div>
+  </div>
 @endsection

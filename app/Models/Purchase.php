@@ -18,43 +18,39 @@ class Purchase extends Model {
         'id_statepurchase',
         'id_footer',
         'id_condition',
-        'id_product',
         'impuesto',
         'total'
     ];
 
     public function client() {
-        return $this->blongsTo(Client::class);
+        return $this->belongsTo(Client::class, 'id_client');
     }
     public function user() {
-        return $this->blongsTo(User::class);
+        return $this->belongsTo(User::class, 'id_user');
     }    
     public function condition() {
-        return $this->blongsTo(Condition::class);
+        return $this->belongsTo(Condition::class, 'id_condition');
     }    
     public function statepurchase() {
-        return $this->blongsTo(Statepurchase::class);
+        return $this->belongsTo(Statepurchase::class, 'id_statepurchase');
     }    
     public function expire() {
-        return $this->blongsTo(Expire::class);
+        return $this->belongsTo(Expire::class, 'id_expire');
     }    
     public function waytopay() {
-        return $this->blongsTo(Waytopay::class);
+        return $this->belongsTo(Waytopay::class, 'id_waytopay');
     }    
     public function coin() {
-        return $this->blongsTo(Coin::class);
+        return $this->belongsTo(Coin::class, 'id_coin');
     }    
     public function footer() {
-        return $this->blongsTo(Footer::class);
+        return $this->belongsTo(Footer::class, 'id_footer');
     }    
     public function deliverie() {
-        return $this->blongsTo(Deliverie::class);
+        return $this->belongsTo(Deliverie::class, 'id_deliverie');
     }
-    public function products() {
-        return $this->blongsTo(Product::class);
-    }
-
+    
     public function purchaseDetails() {
-        return $this->blongsTo(PurchaseDetails::class);
+        return $this->hasMany(PurchaseDetails::class, 'id');
     }
 }

@@ -18,7 +18,7 @@ class StatepurchaseController extends Controller
      */
     public function index()
     {
-        $statepurchases = Statepurchase::paginate();
+        $statepurchases = Statepurchase::paginate(10);
 
         return view('statepurchase.index', compact('statepurchases'))
             ->with('i', (request()->input('page', 1) - 1) * $statepurchases->perPage());

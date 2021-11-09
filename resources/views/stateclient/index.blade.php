@@ -1,71 +1,68 @@
-@extends('layouts.admin')
-
-@section('template_title')
-Stateclient
-@endsection
-
+@extends('layouts.main',['activePage' => 'estado', 'titlePage' => __('ESTADOS')] )
 @section('content')
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-sm-12">
-                <div class="card">
-                    <div class="card-header">
-                        <div style="display: flex; justify-content: space-between; align-items: center;">
+	<div class="content">
+		<div class="container-fluid">
+			<div class="row">
+				<div class="col-md-12">
+					<div class="row">
+						<div class="col-md-12">
+							<div class="card">
+								<div class="card-header card-header-primary">
+									<h4 class="card-title">ESTADOS</h4>
+									<p class="card-category">Estados registrados</p>
 
-                            <span id="card_title">
-                                {{ __('Stateclient') }}
-                            </span>
+								</div>
 
-                             <div class="float-right">
-                                <a href="{{ route('stateclients.create') }}" class="btn btn-primary btn-sm float-right"  data-placement="left">
-                                  {{ __('Create New') }}
-                                </a>
-                              </div>
-                        </div>
-                    </div>
-                    @if ($message = Session::get('success'))
-                        <div class="alert alert-success">
-                            <p>{{ $message }}</p>
-                        </div>
-                    @endif
-
-                    <div class="card-body">
-                        <div class="table-responsive">
-                            <table class="table table-striped table-hover">
-                                <thead class="thead">
-                                    <tr>
-                                        <th>No</th>
-                                        
-										<th>Estado</th>
-
-                                        <th></th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    @foreach ($stateclients as $stateclient)
-                                        <tr>
-                                            <td>{{ ++$i }}</td>
+								<div class="card-body">
+									@if (session('success'))
+										<div class="alert alert-success" role="success">
+											{{session('success')}}
+										</div>		
+									@endif
+									<div class="row">
+										<div class="col-12 text-right">
+											<a href="{{ route('stateclients.create') }}" class="btn btn-sm btn-primary">Añadir Estado</a>
+										</div>
+									</div>
+									<div class="table-responsive"></div>
+									<table class="table">
+										<thead class="text-primary">
+                                            <th>No</th>
                                             
-											<td>{{ $stateclient->estado }}</td>
+                                            <th>Estado</th>
+											<th class="text-right">Acciones</th>
+										</thead>
+										<tbody>
+											@foreach($stateclients as $stateclient)
+											<tr>
+                                                <td>{{ ++$i }}</td>
+                                                
+                                                <td>{{ $stateclient->estado }}</td>
+												<td class="td-actions text-right">
+													<a href="{{ route('stateclients.show',$stateclient->id) }}" class="btn btn-info"><i class="material-icons">note</i></a>
+													<a href="{{ route('stateclients.edit',$stateclient->id) }}" class="btn btn-warning"><i class="material-icons">edit</i></a>
+													<form action="{{ route('stateclients.destroy',$stateclient->id) }}" method="POST" style="display: inline-block;" onsubmit="return confirm('¿SEGURO DE ELIMINAR?')">
+														@csrf
+														@method('DELETE')
+														<button class="btn btn-danger" type="submit" href="{{ route('stateclients.destroy',$stateclient->id) }}">
+															<i class="material-icons">delete</i>
+														</button>
+													</form>
+												</td>
+											</tr>	
+											@endforeach
+									    </tbody>
+									</table>
+								</div>
 
-                                            <td>
-                                                <form action="{{ route('stateclients.destroy',$stateclient->id) }}" method="POST">
-                                                    <a class="btn btn-sm btn-primary " href="{{ route('stateclients.show',$stateclient->id) }}"><i class="fa fa-fw fa-eye"></i> Show</a>
-                                                    <a class="btn btn-sm btn-success" href="{{ route('stateclients.edit',$stateclient->id) }}"><i class="fa fa-fw fa-edit"></i> Edit</a>
-                                                    @csrf
-                                                    @method('DELETE')
-                                                    <button type="submit" class="btn btn-danger btn-sm"><i class="fa fa-fw fa-trash"></i> Delete</button>
-                                                </form>
-                                            </td>
-                                        </tr>
-                                    @endforeach
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
-                </div>
-                {!! $stateclients->links() !!}
-            </div>
-        </div>
-    </div>
+								<div class="card-footer mr auto">
+									{{ $stateclients->links() }}
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
 @endsection

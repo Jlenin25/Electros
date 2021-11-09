@@ -1,31 +1,29 @@
-@extends('layouts.app')
-
-@section('template_title')
-    Update Waytopay
-@endsection
+@extends('layouts.main',['activePage' => 'pagos', 'titlePage' => __('ACTUALIZAR FORMAS DE PAGOS')] )
 
 @section('content')
-    <section class="content container-fluid">
-        <div class="">
-            <div class="col-md-12">
+<div class="content">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-md-12">
+            <div class="card">
+              <div class="card-header card-header-primary">
+                <h4 class="card-title">FORMAS DE PAGOS</h4>
+                <p class="card-category">ACTUALIZAR FORMAS DE PAGOS</p>
+              </div>
+              <div class="card-body">
+  
+                <form method="POST" action="{{ route('waytopays.update', $waytopay->id) }}"  role="form" enctype="multipart/form-data">
+                    {{ method_field('PATCH') }}
+                    @csrf
 
-                @includeif('partials.errors')
+                    @include('waytopay.form')
 
-                <div class="card card-default">
-                    <div class="card-header">
-                        <span class="card-title">Update Waytopay</span>
-                    </div>
-                    <div class="card-body">
-                        <form method="POST" action="{{ route('waytopays.update', $waytopay->id) }}"  role="form" enctype="multipart/form-data">
-                            {{ method_field('PATCH') }}
-                            @csrf
-
-                            @include('waytopay.form')
-
-                        </form>
-                    </div>
-                </div>
+                </form>
+                
+              </div>
             </div>
         </div>
-    </section>
+      </div>
+    </div>
+  </div>
 @endsection

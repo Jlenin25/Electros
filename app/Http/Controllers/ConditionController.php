@@ -18,7 +18,7 @@ class ConditionController extends Controller
      */
     public function index()
     {
-        $conditions = Condition::paginate();
+        $conditions = Condition::paginate(10);
 
         return view('condition.index', compact('conditions'))
             ->with('i', (request()->input('page', 1) - 1) * $conditions->perPage());

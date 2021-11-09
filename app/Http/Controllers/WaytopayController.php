@@ -18,7 +18,7 @@ class WaytopayController extends Controller
      */
     public function index()
     {
-        $waytopays = Waytopay::paginate();
+        $waytopays = Waytopay::paginate(10);
 
         return view('waytopay.index', compact('waytopays'))
             ->with('i', (request()->input('page', 1) - 1) * $waytopays->perPage());

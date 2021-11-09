@@ -18,7 +18,7 @@ class StateclientController extends Controller
      */
     public function index()
     {
-        $stateclients = Stateclient::paginate();
+        $stateclients = Stateclient::paginate(10);
 
         return view('stateclient.index', compact('stateclients'))
             ->with('i', (request()->input('page', 1) - 1) * $stateclients->perPage());

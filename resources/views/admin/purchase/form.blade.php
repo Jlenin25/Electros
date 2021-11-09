@@ -2,7 +2,7 @@
 	<div class="row">
 		<div class="col">
 			<label for="exampleInputName1">Código</label>
-			<input type="text" value="{{ $purchase->codigo }}" class="form-control" name="codigo">
+			<input type="text" class="form-control" name="codigo" value="{{ $purchase->codigo }}">
 		</div>
 		<div class="col">
 			<label for="exampleInputName1">Cliente</label>
@@ -25,124 +25,68 @@
 		</div>
 		<div class="col">
 			<label for="exampleInputName1">Expira</label>
-			<input type="text" value="{{ $purchase->id_expire }}" class="form-control" name="id_expire">
+			<select class="form-control" name="id_expire" id="id_expire">
+				@foreach($expira as $expira)
+				<option value="{{ $expira->id }}">{{ $expira->expira }}</option>
+				@endforeach
+			</select>
 		</div>
 	</div>
 	<br>
 	<div class="row">
 		<div class="col">
 			<label for="exampleInputName1">Moneda</label>
-			<input type="text" value="{{ $purchase->id_coin }}" class="form-control" name="id_coin">
+			<select class="form-control" name="id_coin" id="id_coin">
+				@foreach($coins as $coins)
+				<option value="{{ $coins->id }}">{{ $coins->moneda }}</option>
+				@endforeach
+			</select>
 		</div>
 		<div class="col">
 			<label for="exampleInputName1">Tiempo de entrega</label>
-			<input type="text" value="{{ $purchase->id_deliverie }}" class="form-control" name="id_deliverie">
+			<select class="form-control" name="id_deliverie" id="id_deliverie">
+				@foreach($delivery as $delivery)
+				<option value="{{ $delivery->id }}">{{ $delivery->entrega }}</option>
+				@endforeach
+			</select>
 		</div>
 	</div>
 	<br>
 	<div class="row">
 		<div class="col">
 			<label for="exampleInputName1">Forma de pago</label>
-			<input type="text" value="{{ $purchase->id_waytopay }}" class="form-control" name="id_waytopay">
+			<select class="form-control" name="id_waytopay" id="id_waytopay">
+				@foreach($pago as $pago)
+				<option value="{{ $pago->id }}">{{ $pago->pago }}</option>
+				@endforeach
+			</select>
 		</div>
 		<div class="col">
 			<label for="exampleInputName1">Estado</label>
-			<input type="text" value="{{ $purchase->id_statepurchase }}" class="form-control" name="id_statepurchase">
+			<select class="form-control" name="id_statepurchase" id="id_statepurchase">
+				@foreach($estado as $estado)
+				<option value="{{ $estado->id }}">{{ $estado->estado }}</option>
+				@endforeach
+			</select>
 		</div>
 	</div>
 	<br>
 	<div class="row">
 		<div class="col">
 			<label for="exampleInputName1">Pie de página</label>
-			<input type="text" value="{{ $purchase->id_footer }}" class="form-control" name="id_footer">
-		</div>
-		<div class="col">
-			<label for="exampleInputName1">Condiciones Generales</label>
-			<input type="text" value="{{ $purchase->id_condition }}" class="form-control" name="id_condition">
-		</div>
-	</div>
-	<hr>
-	<div class="row">
-		<div class="col">
-			<label for="exampleInputName1">Producto</label>
-			<select class="form-control" name="id_product" id="id_product">
-				@foreach($product as $producto)
-				<option value="{{ $producto->id }}">{{ $producto->nombre }}</option>
+			<select class="form-control" name="id_footer" id="id_footer">
+				@foreach($pie as $pie)
+				<option value="{{ $pie->id }}">{{ $pie->piepagina }}</option>
 				@endforeach
 			</select>
 		</div>
 		<div class="col">
-			<label for="exampleInputName1">Cantidad</label>
-			<input type="number" class="form-control" name="cantidad" id="cantidad" aria-describedby="helpId">
+			<label for="exampleInputName1">Condiciones Generales</label>
+			<select class="form-control" name="id_condition" id="id_condition">
+				@foreach($condicion as $condicion)
+				<option value="{{ $condicion->id }}">{{ $condicion->condiciones }}</option>
+				@endforeach
+			</select>
 		</div>
 	</div>
-	<br>
-	<br>
-	<br>
-
-		<div class="form-group">
-			<button type="submit" class="btn btn-primary float-right" id="agregar">Agregar Producto</button>
-		</div>
-		<div class="form-group">
-			<h4 class="card-title">Detalles de venta</h4>
-			<div class="table-responsive col-md-12">
-				<table id="detalles" class="table table-striped">
-					<thead>
-						<tr>
-							<th>Eliminar</th>
-							<th>Producto</th>
-							<th>Cantidad</th>
-							<th>Precio Venta</th>
-							<th>Total</th>
-						</tr>
-					</thead>
-					<tfoot>
-						<tr>
-							<th colspan="4">
-								<p align="right">Subtotal: </p>
-							</th>
-							<th colspan="4">
-								<p align="right"><span id="subtotal">0.00</span></p>
-							</th>
-						</tr>
-						<tr>
-							<th colspan="4">
-								<p align="right">IGV: </p>
-							</th>
-							<th colspan="4">
-								<p align="right"><span id="igv">0.00</span></p>
-							</th>
-						</tr>
-						<tr>
-							<th colspan="4">
-								<p align="right">Total: </p>
-							</th>
-							<th colspan="4">
-								<p align="right">
-									<span id="total">0.00</span>
-									{{-- <input type="hidden" name="total" id="total_pagar"> --}}
-								</p>
-							</th>
-						</tr>
-					</tfoot>
-					<tbody>
-					</tbody>
-				</table>
-			</div>
-		</div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 </div>

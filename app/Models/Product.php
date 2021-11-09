@@ -24,9 +24,12 @@ class Product extends Model {
     ];
 
     public function categoria() {
-        return $this->belongsTo(Categoria::class);
+        return $this->belongsTo(Categoria::class, 'id_categoria');
     }
     public function provider() {
-        return $this->belongsTo(Provider::class);
+        return $this->belongsTo(Provider::class, 'id_provider');
+    }
+    public function purchaseDetails() {
+        return $this->hasMany(PurchaseDetails::class, 'id');
     }
 }

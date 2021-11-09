@@ -25,9 +25,9 @@ class Client extends Model
     ];
 
     public function products() {
-        return $this->hasMany(Product::class);
+        return $this->hasMany(Product::class, 'id');
     }
     public function purchases() {
-        return $this->hasMany(Purchase::class);
+        return $this->hasMany(Purchase::class, 'id');
     }
 }

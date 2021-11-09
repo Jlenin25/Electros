@@ -19,7 +19,7 @@ class UpdateRequest extends FormRequest {
             'id_stateclient' => 'nullable|string|max:15',
             'razonsocial' => 'nullable|string|max:80',
             'contacto' => 'required|string|max:50',
-            'celular2' => 'nullable|string|min:9|unique:clients,celular2'.$this->route('client')->id.'|max:9',
+            'celular2' => 'nullable|string|min:9|unique:clients,celular2,'.$this->route('client')->id.'|max:9',
             'email2' => 'nullable|string|unique:clients,email2,'.$this->route('client')->id.'|max:50',
             'id_area' => 'nullable|string|max:15',
             'id_user' => 'nullable|string|max:15'

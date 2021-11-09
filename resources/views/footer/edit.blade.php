@@ -1,31 +1,29 @@
-@extends('layouts.app')
-
-@section('template_title')
-    Update Footer
-@endsection
+@extends('layouts.main',['activePage' => 'footer', 'titlePage' => __(' ACTUALIZAR PIE DE PAGINA')] )
 
 @section('content')
-    <section class="content container-fluid">
-        <div class="">
-            <div class="col-md-12">
+<div class="content">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-md-12">
+            <div class="card">
+              <div class="card-header card-header-primary">
+                <h4 class="card-title">PIE DE PAGINA</h4>
+                <p class="card-category">ACTUALIZAR PIE DE PAGINA</p>
+              </div>
+              <div class="card-body">
+  
+                <form method="POST" action="{{ route('footers.update', $footer->id) }}"  role="form" enctype="multipart/form-data">
+                    {{ method_field('PATCH') }}
+                    @csrf
 
-                @includeif('partials.errors')
+                    @include('footer.form')
 
-                <div class="card card-default">
-                    <div class="card-header">
-                        <span class="card-title">Update Footer</span>
-                    </div>
-                    <div class="card-body">
-                        <form method="POST" action="{{ route('footers.update', $footer->id) }}"  role="form" enctype="multipart/form-data">
-                            {{ method_field('PATCH') }}
-                            @csrf
-
-                            @include('footer.form')
-
-                        </form>
-                    </div>
-                </div>
+                </form>
+  
+              </div>
             </div>
         </div>
-    </section>
+      </div>
+    </div>
+  </div>
 @endsection

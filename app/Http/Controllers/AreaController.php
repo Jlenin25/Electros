@@ -18,7 +18,7 @@ class AreaController extends Controller
      */
     public function index()
     {
-        $areas = Area::paginate();
+        $areas = Area::paginate(10);
 
         return view('area.index', compact('areas'))
             ->with('i', (request()->input('page', 1) - 1) * $areas->perPage());
@@ -48,7 +48,7 @@ class AreaController extends Controller
         $area = Area::create($request->all());
 
         return redirect()->route('areas.index')
-            ->with('success', 'Area created successfully.');
+        ->with('success','AREA REGISTRADA EXITOSAMENTE');
     }
 
     /**
