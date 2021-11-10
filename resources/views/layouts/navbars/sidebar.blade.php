@@ -11,7 +11,7 @@
   </div>
   <div class="sidebar-wrapper">
     <ul class="nav">
-      <li class="nav-item{{ $activePage == 'dashboard' ? ' active' : '' }}">
+      <li class="nav-item {{ $activePage == 'dashboard' ? ' active' : '' }}">
         <a class="nav-link" href="{{ route('home') }}">
           <i class="material-icons">dashboard</i>
             <p>{{ __('Dashboard') }}</p>
@@ -23,18 +23,6 @@
           <span class="sidebar-normal"> {{ __('PRODUCTOS y SERVICIOS') }} </span>
         </a>
       </li>
-      <li class="nav-item{{ $activePage == 'proveedor' ? ' active' : '' }}">
-        <a class="nav-link" href="{{ route('providers.index') }}">
-          <i><img src="https://img.icons8.com/wired/30/000000/selfish.png"/></i>
-          <span class="sidebar-normal">{{ __('PROVEEDORES') }} </span>
-        </a>
-      </li>
-      <li class="nav-item{{ $activePage == 'cliente' ? ' active' : '' }}">
-        <a class="nav-link" href="{{ route('clients.index') }}">
-          <i><img src="https://img.icons8.com/wired/30/000000/businessman.png"/></i>
-          <span class="sidebar-normal">{{ __('CLIENTES') }} </span>
-        </a>
-      </li>
       <li class="nav-item {{ ($activePage == 'profile' || $activePage == 'user-management') ? ' active' : '' }}">
         <a class="nav-link" data-toggle="collapse" href="#laravelExample1" aria-expanded="true">
           <i><img src="https://img.icons8.com/ios-glyphs/30/000000/cash-register.png"/></i>
@@ -44,19 +32,35 @@
         </a>
         <div class="collapse show" id="laravelExample1">
           <ul class="nav">
+            {{-- Cotización --}}
             <li class="nav-item{{ $activePage == 'compras' ? ' active' : '' }}">
-            <a class="nav-link" href="{{ route('purchases.index') }}">
-            <i><img src="https://img.icons8.com/ios/30/000000/sales-performance.png"/></i>
-            <span class="sidebar-normal">{{ __('COTIZACION') }} </span>
-          </a>
-        </li>
-      </ul>
-    </div>
-  </li>
+              <a class="nav-link" href="{{ route('purchases.index') }}">
+                <i><img src="https://img.icons8.com/ios/30/000000/sales-performance.png"/></i>
+                <span class="sidebar-normal">{{ __('COTIZACION') }} </span>
+              </a>
+            </li>
+            {{-- Clientes --}}
+            <li class="nav-item{{ $activePage == 'cliente' ? ' active' : '' }}">
+              <a class="nav-link" href="{{ route('clients.index') }}">
+                <i><img src="https://img.icons8.com/wired/30/000000/businessman.png"/></i>
+                <span class="sidebar-normal">{{ __('CLIENTES') }} </span>
+              </a>
+            </li>
+            {{-- Proveedores --}}
+            <li class="nav-item{{ $activePage == 'proveedor' ? ' active' : '' }}">
+              <a class="nav-link" href="{{ route('providers.index') }}">
+                <i><img src="https://img.icons8.com/wired/30/000000/selfish.png"/></i>
+                <span class="sidebar-normal">{{ __('PROVEEDORES') }} </span>
+              </a>
+            </li>
+          </ul>
+        </div>
+       </li>
       <li class="nav-item {{ ($activePage == 'profile' || $activePage == 'user-management') ? ' active' : '' }}">
         <a class="nav-link" data-toggle="collapse" href="#laravelExample" aria-expanded="true">
           <i><img src="https://img.icons8.com/dotty/30/000000/person-male.png"/></i>
-          <p>{{ __('ADMIN') }}
+          <p>
+            {{ __('ADMIN') }}
             <b class="caret"></b>
           </p>
         </a>
@@ -126,12 +130,6 @@
             <p>{{ __('AREA') }}</p>
         </a>
       </li>
-      
-
-
-
-
-
     </ul>
   </div>
 </div>

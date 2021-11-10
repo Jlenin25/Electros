@@ -11,7 +11,7 @@ class UpdateRequest extends FormRequest {
     public function rules()
     {
         return [
-            'ruc' => 'required|string|max:11|min:11|unique:clients',
+            'ruc' => 'required|string|min:11|unique:providers,ruc,'.$this->route('client')->id.'|max:11',
             'direccion' => 'nullable|string|max:100',
             'celular1' => 'required|string|min:9|unique:clients,celular1,'.$this->route('client')->id.'|max:9',
             'email1' => 'nullable|string|unique:clients,email1,'.$this->route('client')->id.'|max:50',

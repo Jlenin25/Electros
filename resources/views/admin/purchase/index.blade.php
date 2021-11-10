@@ -29,7 +29,7 @@
 										<thead class="text-primary">
 											<th>Código</th>
 											<th>Cliente</th>
-											<th>Asignado</th>
+											<th>Responsable</th>
 											<th>Expira</th>
 											<th>Moneda</th>
 											<th>Tiempo de entrega</th>
@@ -43,15 +43,15 @@
 											@foreach($purchases as $cotizacion)
 											<tr>
 												<td>{{ $cotizacion->codigo }}</td>
-												<td>{{ $cotizacion->id_client }}</td>
-												<td>{{ $cotizacion->id_user }}</td>
-												<td>{{ $cotizacion->id_expire }}</td>
-												<td>{{ $cotizacion->id_coin }}</td>
-												<td>{{ $cotizacion->id_deliverie }}</td>
-												<td>{{ $cotizacion->id_waytopay }}</td>
-												<td>{{ $cotizacion->id_statepurcdase }}</td>
-												<td>{{ $cotizacion->id_footer }}</td>
-												<td>{{ $cotizacion->id_condition }}</td>
+												<td>{{ $cotizacion->client->contacto }}</td>
+												<td>{{ $cotizacion->user->name }}</td>
+												<td>{{ $cotizacion->expire->expira }}</td>
+												<td>{{ $cotizacion->coin->moneda }}</td>
+												<td>{{ $cotizacion->deliverie->entrega }}</td>
+												<td>{{ $cotizacion->waytopay->pago }}</td>
+												<td>{{ $cotizacion->statepurchase->estado }}</td>
+												<td>{{ $cotizacion->footer->piepagina }}</td>
+												<td>{{ $cotizacion->condition->condiciones }}</td>
 												<td class="td-actions text-right">
 													<a href="{{ route('purchasedetails.show',$cotizacion->id) }}" class="btn btn-info"><i class="material-icons">event_note</i></a>
 													<a href="{{ route('purchases.edit',$cotizacion->id) }}" class="btn btn-warning"><i class="material-icons">edit</i></a>

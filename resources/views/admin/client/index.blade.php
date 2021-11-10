@@ -47,11 +47,11 @@
 												<td>{{ $cliente->celular1 }}</td>
 												<td>{{ $cliente->email1 }}</td>
 												<td>{{ $cliente->paginaweb }}</td>
-												<td>{{ $cliente->id_stateclient }}</td>
+												<td>{{ $cliente->stateclient->estado }}</td>
 												<td>{{ $cliente->razonsocial }}</td>
 												<td>{{ $cliente->contacto }}</td>
-												<td>{{ $cliente->id_area }}</td>
-												<td>{{ $cliente->id_user }}</td>
+												<td>{{ $cliente->area->derivado }}</td>
+												<td>{{ $cliente->user->name }}</td>
 												<td class="td-actions text-right">
 													<a href="{{ route('clients.edit',$cliente->id) }}" class="btn btn-warning"><i class="material-icons">edit</i></a>
 													<form action="{{ route('clients.destroy',$cliente->id) }}" method="POST" style="display: inline-block;" onsubmit="return confirm('¿SEGURO DE ELIMINAR?')">

@@ -21,12 +21,16 @@ Route::resource('coins', App\Http\Controllers\CoinController::class)->names('coi
 Route::resource('stateclients', App\Http\Controllers\StateclientController::class)->names('stateclients');
 Route::resource('statepurchases', App\Http\Controllers\StatepurchaseController::class)->names('statepurchases');
 Route::resource('waytopays', App\Http\Controllers\WaytopayController::class)->names('waytopays');
+Route::resource('ordencompras', App\Http\Controllers\OrdenCompraController::class)->names('ordencompras');
+
+// Items
 Route::resource('purchasedetails', App\Http\Controllers\PurchaseDetailsController::class)->names('purchasedetails');
 
-Route::get('dashboard', function () {
-    return view('prueba');
-});
-Auth::routes();
 
+Route::get('dashboard', function () {
+	return view('prueba');
+});
+
+Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 

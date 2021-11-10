@@ -52,7 +52,7 @@
 												<th>{{ $cliente->descripcion }}</th>
 												<th>{{ $cliente->id_provider }}</th>
 												<th>{{ $cliente->fabricante }}</th>
-												<th>{{ $cliente->id_categoria }}</th>
+												<th>{{ $cliente->categoria->name }}</th>
 												<th>{{ $cliente->precioventa }}</th>
 												<th>{{ $cliente->estado }}</th>
 												<th>{{ $cliente->proserv }}</th>

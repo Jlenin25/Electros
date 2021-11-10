@@ -47,11 +47,11 @@
 												<th>{{ $proveedor->celular1 }}</th>
 												<th>{{ $proveedor->email1 }}</th>
 												<th>{{ $proveedor->paginaweb }}</th>
-												<th>{{ $proveedor->id_stateclient }}</th>
+												<th>{{ $proveedor->stateclient->estado }}</th>
 												<th>{{ $proveedor->razonsocial }}</th>
 												<th>{{ $proveedor->contacto }}</th>
-												<th>{{ $proveedor->id_area }}</th>
-												<th>{{ $proveedor->id_user }}</th>
+												<th>{{ $proveedor->area->derivado }}</th>
+												<th>{{ $proveedor->user->name }}</th>
 												<td class="td-actions text-right">
 													<a href="{{ route('providers.edit',$proveedor->id) }}" class="btn btn-warning"><i class="material-icons">edit</i></a>
 													<form action="{{ route('providers.destroy',$proveedor->id) }}}" method="POST" style="display: inline-block;" onsubmit="return confirm('¿SEGURO DE ELIMINAR?')">

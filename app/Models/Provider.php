@@ -16,14 +16,22 @@ class Provider extends Model
         'email1',
         'paginaweb',
         'id_stateclient',
-        'razonsocia',
+        'razonsocial',
         'contacto',
         'celular2',
         'email2',
         'id_area',
         'id_user'
     ];
-
+    public function stateclient() {
+        return $this->belongsTo(Stateclient::class, 'id_stateclient');
+    }
+    public function area() {
+        return $this->belongsTo(Area::class, 'id_area');
+    }
+    public function user() {
+        return $this->belongsTo(User::class, 'id_user');
+    }
     public function products() {
         return $this->hasMany(Product::class);
     }

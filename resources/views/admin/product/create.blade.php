@@ -14,11 +14,11 @@
             </div>
             <div class="card-body">
 
-              <form class="forms-sample" method="POST" action="{{ route('clients.store') }}">
+              <form class="forms-sample" method="POST" action="{{ route('products.store') }}">
                 @csrf
                 @include('admin.product.form')
                 <button type="submit" class="btn btn-primary mr-2">Agregar</button>
-                <a href="{{ route('clients.index') }}"class="btn btn-light">Cancelar</a>
+                <a href="{{ route('products.index') }}"class="btn btn-light">Cancelar</a>
               </form>
 
             </div>

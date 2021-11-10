@@ -1,5 +1,4 @@
 @extends('layouts.main',['activePage' => 'compras', 'titlePage' => __('COTIZACION')])
-
 @section('content')
 <div class="content">
   <div class="container-fluid">
@@ -13,7 +12,7 @@
             <div class="card-body">
 
               <form class="forms-sample" method="POST" action="{{ route('purchases.update', $purchase->id) }}">
-                {{ method_field('PATCH') }}
+                @method('PUT')
                 @csrf
                 @include('admin.purchase.form')
                 <button type="submit" class="btn btn-primary mr-2">Actualizar</button>

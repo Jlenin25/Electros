@@ -1,5 +1,4 @@
 @extends('layouts.main',['activePage' => 'proveedor', 'titlePage' => __('ACTUALIZAR PROVEEDOR')])
-
 @section('content')
 <div class="content">
   <div class="container-fluid">
@@ -19,7 +18,6 @@
                 <button type="submit" class="btn btn-primary mr-2">Actualizar</button>
                 <a href="{{ route('providers.index') }}"class="btn btn-light">Cancelar</a>
               </form>
-
             </div>
           </div>
       </div>

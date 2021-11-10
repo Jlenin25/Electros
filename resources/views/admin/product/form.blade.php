@@ -35,12 +35,12 @@
 	<div class="row">
 		<div class="col">
 			<label for="exampleInputName1">Proveedor</label>
-			<input type="text" value="{{ $product->id_provider }}" class="form-control" name="id_provider">
-			{{-- <select class="form-control" name="id_provider" id="id_provider">
+			{{-- <input type="text" value="{{ $product->id_provider }}" class="form-control" name="id_provider"> --}}
+			<select class="form-control" name="id_provider">
 				@foreach($providers as $proveedor)
 				<option value="{{ $proveedor->id }}">{{ $proveedor->contacto }}</option>
 				@endforeach
-			</select> --}}
+			</select>
 		</div>
 		<div class="col">
 			<label for="exampleInputName1">Fabricante</label>
@@ -51,12 +51,12 @@
 	<div class="row">
 		<div class="col">
 			<label for="exampleInputName1">Categoría</label>
-			<input type="text" value="{{ $product->id_categoria }}" class="form-control" name="id_categoria">
-			{{-- <select class="form-control" name="id_categorie" id="id_categorie">
-				@foreach($categories as $categoria)
+			{{-- <input type="text" value="{{ $product->id_categoria }}" class="form-control" name="id_categoria"> --}}
+			<select class="form-control" name="id_categoria" id="id_categoria">
+				@foreach($categorias as $categoria)
 				<option value="{{ $categoria->id }}">{{ $categoria->name }}</option>
 				@endforeach
-			</select> --}}
+			</select>
 		</div>
 		<div class="col">
 			<label for="exampleInputName1">Precio de Venta</label>

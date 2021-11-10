@@ -28,15 +28,16 @@ class ProductController extends Controller
     }
 
     public function store(StoreRequest $request) {
-        if($request->hasFile('imagen')) {
-            $file = $request->file('imagen');
-            $image_name = time().'_'.$file->getClientOriginalName();
-            $file->move(public_path('/imagen'),$image_name);
-        };
-        $product = Product::create($request->all()+[
-            'imagen'=>$image_name,
-        ]);
-        $product->update(['codigo'=>$product->id]);
+        Product::create($request->all());
+        // if($request->hasFile('imagen')) {
+        //     $file = $request->file('imagen');
+        //     $image_name = time().'_'.$file->getClientOriginalName();
+        //     $file->move(public_path('/imagen'),$image_name);
+        // };
+        // $product = Product::create($request->all()+[
+        //     'imagen'=>$image_name,
+        // ]);
+        // $product->update(['codigo'=>$product->id]);
         return redirect()->route('products.index')->with('success','PRODUCTO REGISTRADO EXITOSAMENTE');
     }
 
@@ -54,9 +55,9 @@ class ProductController extends Controller
         ));
     }
 
-    public function update(UpdateRequest $request, Product $product) {
+    public function update(Request $request, Product $product) {
         $product->update($request->all());
-        return redirect()->route('products.index')->with('success','PRODUCTO CREADO EXITOSAMENTE');
+        return redirect()->route('products.index')->with('success','PRODUCTO ACTUALIZADO EXITOSAMENTE');
     }
 
     public function destroy(Product $product) {
