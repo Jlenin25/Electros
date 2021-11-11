@@ -56,6 +56,35 @@
           </ul>
         </div>
        </li>
+       {{--Operaciones--}}
+       <li class="nav-item {{ ($activePage == 'profile' || $activePage == 'user-management') ? ' active' : '' }}">
+        <a class="nav-link" data-toggle="collapse" href="#laravelExample2" aria-expanded="true">
+          <i><img src="https://img.icons8.com/ios-glyphs/30/000000/cash-register.png"/></i>
+          <p>{{ __('OPERACIONES') }}
+            <b class="caret"></b>
+          </p>
+        </a>
+
+        <div class="collapse show" id="laravelExample2">
+          <ul class="nav">
+
+            <li class="nav-item{{ $activePage == 'evaluacion' ? ' active' : '' }}">
+              <a class="nav-link"   href="{{ route('evaluacions.index') }}">
+                <i><img src="https://img.icons8.com/fluency-systems-regular/30/000000/macbook-money.png"/></i>
+                  <p>{{ __('EVALUACIONES ') }}</p>
+              </a>
+            </li>
+
+            <li class="nav-item{{ $activePage == 'orden-trabajo' ? ' active' : '' }}">
+              <a class="nav-link" href="{{ route('orden-trabajos.index') }}">
+                <i class="material-icons">multiline_chart</i>
+                <p>{{ __('ORDENES DE TRABAJO') }}</p>
+              </a>
+            </li>
+           </ul>
+        </div>
+        </li>
+      {{--Fin de operacions--}}
       <li class="nav-item {{ ($activePage == 'profile' || $activePage == 'user-management') ? ' active' : '' }}">
         <a class="nav-link" data-toggle="collapse" href="#laravelExample" aria-expanded="true">
           <i><img src="https://img.icons8.com/dotty/30/000000/person-male.png"/></i>
@@ -114,7 +143,7 @@
                 <p>{{ __('FORMA DE PAGOS') }}</p>
               </a>
             </li>
-            
+
             <li class="nav-item{{ $activePage == 'categoria' ? ' active' : '' }}">
               <a class="nav-link" href="{{ route('categorias.index') }}">
                 <i class="material-icons">view_list</i>

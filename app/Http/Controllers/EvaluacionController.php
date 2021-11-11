@@ -2,9 +2,20 @@
 
 namespace App\Http\Controllers;
 
+
+use App\Models\Client;
+use App\Models\User;
+use App\Models\Deliverie;
+use App\Models\Statepurchase;
+
 use App\Models\Evaluacion;
 use Illuminate\Http\Request;
+use App\Http\Requests\Purchase\StoreRequest;
 
+/**
+ * Class EvaluacionController
+ * @package App\Http\Controllers
+ */
 class EvaluacionController extends Controller
 {
     /**
@@ -14,7 +25,10 @@ class EvaluacionController extends Controller
      */
     public function index()
     {
-        //
+        $evaluacions = Evaluacion::paginate();
+
+        return view('evaluacion.index', compact('evaluacions'))
+            ->with('i', (request()->input('page', 1) - 1) * $evaluacions->perPage());
     }
 
     /**
@@ -24,62 +38,83 @@ class EvaluacionController extends Controller
      */
     public function create()
     {
-        //
+        $evaluacion = new Evaluacion();
+        $cliente = Client::get();
+        $user = User::get();
+        $delivery = Deliverie::get();
+        $estado = Statepurchase::get();
+        return view('evaluacion.create', compact('evaluacion','cliente', 'user',
+        'delivery','estado'
+        ));
     }
 
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StoreRequest $request)
     {
-        //
+        $evaluacion = Evaluacion::create($request->all());
+
+        return redirect()->route('evaluacions.index')
+            ->with('success', 'Evaluacion created successfully.');
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Evaluacion  $evaluacion
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Evaluacion $evaluacion)
+    public function show($id)
     {
-        //
+        $evaluacion = Evaluacion::find($id);
+
+        return view('evaluacion.show', compact('evaluacion'));
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Evaluacion  $evaluacion
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Evaluacion $evaluacion)
+    public function edit($id)
     {
-        //
+        $evaluacion = Evaluacion::find($id);
+
+        return view('evaluacion.edit', compact('evaluacion'));
     }
 
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Evaluacion  $evaluacion
+     * @param  \Illuminate\Http\Request $request
+     * @param  Evaluacion $evaluacion
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, Evaluacion $evaluacion)
     {
-        //
+        request()->validate(Evaluacion::$rules);
+
+        $evaluacion->update($request->all());
+
+        return redirect()->route('evaluacions.index')
+            ->with('success', 'Evaluacion updated successfully');
     }
 
     /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\Evaluacion  $evaluacion
-     * @return \Illuminate\Http\Response
+     * @param int $id
+     * @return \Illuminate\Http\RedirectResponse
+     * @throws \Exception
      */
-    public function destroy(Evaluacion $evaluacion)
+    public function destroy($id)
     {
-        //
+        $evaluacion = Evaluacion::find($id)->delete();
+
+        return redirect()->route('evaluacions.index')
+            ->with('success', 'Evaluacion deleted successfully');
     }
 }

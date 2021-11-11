@@ -17,7 +17,7 @@
 									@if (session('success'))
 										<div class="alert alert-success" role="success">
 											{{session('success')}}
-										</div>		
+										</div>
 									@endif
 									<div class="row">
 										<div class="col-12 text-right">
@@ -63,7 +63,7 @@
 														</button>
 													</form>
 												</td>
-											</tr>	
+											</tr>
 											@endforeach
 									    </tbody>
 									</table>

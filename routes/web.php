@@ -10,6 +10,8 @@ Route::resource('products', App\Http\Controllers\ProductController::class)->name
 Route::resource('providers', App\Http\Controllers\ProviderController::class)->names('providers');
 Route::resource('purchases', App\Http\Controllers\PurchaseController::class)->names('purchases');
 Route::resource('sales', App\Http\Controllers\SaleController::class)->names('sales');
+Route::resource('evaluacions', App\Http\Controllers\EvaluacionController::class)->names('evaluacions');
+Route::resource('orden-trabajos', App\Http\Controllers\OrdenTrabajoController::class)->names('orden-trabajos');
 
 // CRUD - Cotización
 Route::resource('areas', App\Http\Controllers\AreaController::class)->names('areas');
