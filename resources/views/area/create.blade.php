@@ -1,5 +1,4 @@
 @extends('layouts.main',['activePage' => 'area', 'titlePage' => __('AREA')])
-
 @section('content')
 <div class="content">
     <div class="container-fluid">
@@ -14,9 +13,7 @@
   
                 <form method="POST" action="{{ route('areas.store') }}"  role="form" enctype="multipart/form-data">
                     @csrf
-
                     @include('area.form')
-
                 </form>
                 
               </div>

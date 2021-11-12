@@ -22,47 +22,28 @@ use Illuminate\Database\Eloquent\Model;
  * @package App
  * @mixin \Illuminate\Database\Eloquent\Builder
  */
-class Evaluacion extends Model
-{
-    
+class Evaluacion extends Model {
     static $rules = [
 		'estado' => 'required',
 		'creado' => 'required',
     ];
-
     protected $perPage = 20;
+    
+    protected $fillable = [
+        'id_client',
+        'id_user',
+        'estado',
+        'id_deliverie',
+        'creado'
+    ];
 
-    /**
-     * Attributes that should be mass-assignable.
-     *
-     * @var array
-     */
-    protected $fillable = ['id_client','id_user','estado','id_deliverie','creado'];
-
-
-    /**
-     * @return \Illuminate\Database\Eloquent\Relations\HasOne
-     */
-    public function client()
-    {
+    public function client() {
         return $this->hasOne('App\Models\Client', 'id', 'id_client');
     }
-    
-    /**
-     * @return \Illuminate\Database\Eloquent\Relations\HasOne
-     */
-    public function delivery()
-    {
-        return $this->hasOne('App\Models\Delivery', 'id', 'id_deliverie');
+    public function delivery() {
+        return $this->hasOne('App\Models\Deliverie', 'id', 'id_deliverie');
     }
-    
-    /**
-     * @return \Illuminate\Database\Eloquent\Relations\HasOne
-     */
-    public function user()
-    {
+    public function user() {
         return $this->hasOne('App\Models\User', 'id', 'id_user');
     }
-    
-
 }

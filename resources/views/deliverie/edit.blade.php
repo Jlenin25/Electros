@@ -1,5 +1,4 @@
 @extends('layouts.main',['activePage' => 'entrega', 'titlePage' => __('ACTUALIZAR ENTREGAS')])
-
 @section('content')
 <div class="content">
     <div class="container-fluid">
@@ -11,15 +10,11 @@
                 <p class="card-category">ACTUALIZAR ENTREGAS</p>
               </div>
               <div class="card-body">
-  
-                <form method="POST" action="{{ route('deliveries.update', $delivery->id) }}"  role="form" enctype="multipart/form-data">
-                    {{ method_field('PATCH') }}
-                    @csrf
-
-                    @include('delivery.form')
-
+                <form method="POST" action="{{ route('deliveries.update', $deliverie->id) }}"  role="form" enctype="multipart/form-data">
+                  {{ method_field('PATCH') }}
+                  @csrf
+                  @include('deliverie.form')
                 </form>
-  
               </div>
             </div>
         </div>

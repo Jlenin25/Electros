@@ -1,14 +1,11 @@
 <div class="box box-info padding-1">
     <div class="box-body">
-        
         <div class="form-group">
-            {{ Form::label('entrega') }}
-            {{ Form::text('entrega', $deliverie->entrega, ['class' => 'form-control' . ($errors->has('entrega') ? ' is-invalid' : ''), 'placeholder' => 'Entrega']) }}
-            {!! $errors->first('entrega', '<div class="invalid-feedback">:message</p>') !!}
+            <label for="">Tiempo de entrega</label>
+            <input type="text" name="entrega" value="{{ $deliverie->entrega }}" class="form-control">
         </div>
-
     </div>
     <div class="box-footer mt20">
-        <button type="submit" class="btn btn-primary">Submit</button>
+        <button type="submit" class="btn btn-primary">Enviar</button>
     </div>
 </div>

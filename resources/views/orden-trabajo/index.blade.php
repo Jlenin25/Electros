@@ -1,4 +1,3 @@
-
 @extends('layouts.main',['activePage' => 'orden-trabajo', 'titlePage' => __('ORDEN DE TRABAJO')] )
 @section('content')
 	<div class="content">
@@ -11,9 +10,7 @@
 								<div class="card-header card-header-primary">
 									<h4 class="card-title">ORDEN DE TRABAJO</h4>
 									<p class="card-category">Ordenes de trabajo registradas</p>
-
 								</div>
-
 								<div class="card-body">
 									@if (session('success'))
 										<div class="alert alert-success" role="success">
@@ -29,22 +26,22 @@
 									<table class="table">
 										<thead class="text-primary">
 											<th>Cliente</th>
-                                            <th>Asignado</th>
-                                            <th>Procesado</th>
-                                            <th>Estado</th>
-                                            <th>Tiempo de entrega</th>
-                                            <th>Creado</th>
+											<th>Responsable</th>
+											<th>Procesado</th>
+											<th>Estado</th>
+											<th>Tiempo de entrega</th>
+											<th>Creado</th>
 											<th class="text-rigth">Acciones</th>
 										</thead>
 										<tbody>
 											@foreach ($ordenTrabajos as $ordenTrabajo)
 											<tr>
 												<td>{{ $ordenTrabajo->client->contacto }}</td>
-                                                <td>{{ $ordenTrabajo->user->name }}</td>
-                                                <td>{{ $ordenTrabajo->procesado }}</td>
-                                                <td>{{ $ordenTrabajo->estado }}</td>
-                                                <td>{{ $ordenTrabajo->deliverie->entrega}}</td>
-                                                <td>{{ $ordenTrabajo->creado }}</td>
+												<td>{{ $ordenTrabajo->user->name }}</td>
+												<td>{{ $ordenTrabajo->procesado }}</td>
+												<td>{{ $ordenTrabajo->estado }}</td>
+												<td>{{ $ordenTrabajo->deliverie->entrega}}</td>
+												<td>{{ $ordenTrabajo->creado }}</td>
 												<td class="td-actions text-right">
 													<a href="{{ route('orden-trabajo.show',$ordenTrabajo->id) }}" class="btn btn-info"><i class="material-icons">event_note</i></a>
 													<a href="{{ route('orden-trabajo.edit',$ordenTrabajo->id) }}" class="btn btn-warning"><i class="material-icons">edit</i></a>

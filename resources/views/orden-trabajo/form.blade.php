@@ -9,7 +9,7 @@
 			</select>
 		</div>
         <div class="col">
-			<label for="exampleInputName1">Asignado</label>
+			<label for="exampleInputName1">Responsable</label>
 			<select class="form-control" name="id_user" id="id_user">
 				@foreach($user as $usuario)
 				<option value="{{ $usuario->id }}">{{ $usuario->name }}</option>
@@ -19,7 +19,6 @@
 	</div>
 	<br>
     <div class="row">
-
         <div class="col">
 			<label for="exampleInputName1">Procesado</label>
 			<input type="text" value="{{ $ordenTrabajo->creado }}" class="form-control" name="creado">
